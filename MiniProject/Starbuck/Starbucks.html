@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starbucks Website</title>
+    <link rel="stylesheet" href="./Starbucks.css">
+</head>
+<body>
+    <section>
+        <div class="circle"></div>
+        <header>
+            <a href="#" class="logo"><img src="./logo.jpg" alt=""></a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Thực đơn</a></li>
+                <li><a href="#">Món Mới</a></li>
+                <li><a href="#">Liên lạc</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="textBox">
+                <h2>Nó không chỉ là Cà Phê <br>Nó là <span>Starbucks</span></h2>
+                <p>Stabucks cam kết mối liên hệ này xuất phát từ sự trân trọng
+                của chúng tôi – chúng tôi cam kết phục vụ sản phẩm cà phê với
+                chất lượng tốt nhất, tạo mối liên kết đến từng khách hàng và
+                thực hiện trách nhiệm với cộng đồng và xã hội tại nơi Starbucks
+                hoạt động kinh doanh.</p>
+                <a href="#">Về Chúng Tôi</a>
+            </div>
+            <div class="imgBox">
+                <img src="sb1.jpg" class="starbucks">
+            </div>
+        </div>
+        <ul class="thumb">
+            <li><img src="sb4.jpg" onclick="imgSlider('sb1.jpg'); changeCircleColor('#017143')"></li>
+            <li><img src="sb5.jpg" onclick="imgSlider('sb2.jpg'); changeCircleColor('#eb7495')" ></li>
+            <li><img src="sb6.jpg" onclick="imgSlider('sb3.jpg'); changeCircleColor('#d752b1')"></li>
+        </ul>
+        <ul class="sci">
+            <li><a href="#"><img src="./fb.jpg"></a></li>
+            <li><a href="#"><img src="./ig.jpg"></a></li>
+            <li><a href="#"><img src="./ptr.jpg"></a></li>
+        </ul>
+    </section>
+
+    <script type="text/javascript">
+        function imgSlider(anything) {
+            document.querySelector('.starbucks').src = anything;
+        }
+
+        function changeCircleColor(color) {
+            const circle = document.querySelector('.circle');
+            circle.style.background = color;
+        }
+    </script>
+    
+</body>
+</html>
