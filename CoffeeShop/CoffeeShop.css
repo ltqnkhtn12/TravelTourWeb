@@ -41,6 +41,10 @@ body {
     background: var(--bg);
 }
 
+section {
+    padding: 2rem 7%;
+}
+
 .btn {
     margin-top: 1rem;
     display: inline-block;
@@ -56,7 +60,7 @@ body {
 }
 
 .header {
-    background: var(--bg);
+    background: rgb(48, 47, 47);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -69,11 +73,12 @@ body {
     z-index: 1000;
 }
 .header .logo img {
-    height: 9rem;
+    height: 8rem;
+    width: 10rem;
 }
 
 .header .navbar a {
-    margin: 0.6rem;
+    margin: 1rem;
     font-size: 1.6rem;
     color: #fff;
 }
@@ -122,7 +127,7 @@ body {
 }
 
 .header .search-form.active {
-    right: 0;
+    transform: scaleY(1);
 }
 
 .header .search-form label {
@@ -140,7 +145,7 @@ body {
     position: absolute;
     top: 100%;
     right: -100%;
-    height: calc(100vh -9.5rem);
+    height: calc(100vh - 9.5rem);
     width: 35rem;
     background: #fff;
     padding: 0 1.5rem;
@@ -192,6 +197,34 @@ body {
     text-align: center;
 }
 
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(./img/home.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home .content {
+    max-width: 60rem;
+}
+
+.home .content h3 {
+    font-size: 6rem;
+    text-transform: uppercase;
+    color: #8a6b08;
+}
+
+.home .content p {
+    font-size: 2rem;
+    font-weight: lighter;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: #070707;
+}
+
+
 /*media queries*/
 @media (max-width:991px) {
     html {
@@ -202,9 +235,16 @@ body {
         padding: 1.5rem 2rem;
     }
 
+    section {
+        padding: 2rem;
+    }
+}
+
+    @media (max-width:768px) {
     #menu-btn {
         display: inline-block;
     }
+
 
     .header .navbar {
         position: absolute;
@@ -225,6 +265,17 @@ body {
         padding: 5rem;
         font-size: 2rem;
         color: var(--black);
+    }
+
+    .header .search-form {
+        width: 90%;
+        right: 2rem;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
     }
 }
 
