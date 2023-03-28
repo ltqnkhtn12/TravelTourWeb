@@ -45,6 +45,19 @@ section {
     padding: 2rem 7%;
 }
 
+.heading {
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    padding-bottom: 3.5rem;
+    font-size: 4rem;
+}
+
+.heading span {
+    color: var(--main-color);
+    text-transform: uppercase;
+}
+
 .btn {
     margin-top: 1rem;
     display: inline-block;
@@ -223,6 +236,43 @@ section {
     padding: 1rem 0;
     color: #070707;
 }
+.About {
+    margin-top: 3rem;
+}
+.About .row {
+    display: flex;
+    align-items: center;
+    background: var(--black);
+    flex-wrap: wrap;
+}
+
+.About .row .image {
+    flex: 1 1 45rem;
+}
+
+.About .row .image img {
+    width: 100%;
+}
+
+.About .row .content {
+    flex: 1 1 70rem;
+    padding: 2rem;
+}
+
+.About .row .content h3 {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.About .row .content p {
+    font-size: 1.6rem;
+    color: #fff;
+    padding: 1rem 0;
+    line-height: 1.8;
+}
+
+
+
 
 
 /*media queries*/
@@ -270,6 +320,19 @@ section {
     .header .search-form {
         width: 90%;
         right: 2rem;
+    }
+
+    .home {
+        background-position: left;
+        justify-content: center;
+    }
+
+    .home .content h3 {
+        font-size: 4.5rem;
+    }
+
+    .home .content p {
+        font-size: 1.5rem;
     }
 }
 
