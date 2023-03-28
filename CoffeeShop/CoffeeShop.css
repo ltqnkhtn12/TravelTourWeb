@@ -1,8 +1,8 @@
 :root {
-    --main-color: #d3ad7f;
-    --black: #1313131a;
+    --main-color: #d37e17;
+    --black: #0b0b0e;
     --bg: #010103;
-    --border: .1rem solid rgba(27, 24, 24, 0.3);
+    --border: .1rem solid #28282b;
 }
 
 * {
@@ -39,6 +39,20 @@ html::-webkit-scrollbar-thumb {
 
 body {
     background: var(--bg);
+}
+
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .8rem 3rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--main-color);
+    cursor: pointer;
+}
+
+.btn:hover {
+    letter-spacing: .2rem;
 }
 
 .header {
@@ -81,11 +95,11 @@ body {
     color: var(--main-color);
 }
 
-.header .icons #menu-btn {
+#menu-btn {
     display: none;
 }
 
-.header .search-box {
+.header .search-form {
     position: absolute;
     top: 115%;
     right: 7%;
@@ -107,10 +121,14 @@ body {
     text-transform: none;
 }
 
+.header .search-form.active {
+    right: 0;
+}
+
 .header .search-form label {
     cursor: pointer;
     font-size: 2.2rem;
-    margin-right: 1.5rem;
+    margin-right: 1rem;
     color: var(--black);
 }
 
@@ -121,11 +139,15 @@ body {
 .header .cart-items-container {
     position: absolute;
     top: 100%;
-    right: 0;
+    right: -100%;
     height: calc(100vh -9.5rem);
     width: 35rem;
     background: #fff;
     padding: 0 1.5rem;
+}
+
+.header .cart-items-container.active {
+    right: 0;
 }
 
 .header .cart-items-container .cart-item {
@@ -163,6 +185,47 @@ body {
 .header .cart-items-container .content .price {
     font-size: 1.5rem;
     color: var(--main-color);
+}
+
+.header .cart-items-container .btn {
+    width: 100%;
+    text-align: center;
+}
+
+/*media queries*/
+@media (max-width:991px) {
+    html {
+    font-size: 55%;
+    }
+    
+    .header {
+        padding: 1.5rem 2rem;
+    }
+
+    #menu-btn {
+        display: inline-block;
+    }
+
+    .header .navbar {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background: #fff;
+        width: 30rem;
+        height: calc(100vh - 9.5rem);
+    }
+
+    .header .navbar.active {
+        right: 0;
+    }
+
+    .header .navbar a {
+        display: block;
+        margin: 1.5rem;
+        padding: 5rem;
+        font-size: 2rem;
+        color: var(--black);
+    }
 }
 
 
