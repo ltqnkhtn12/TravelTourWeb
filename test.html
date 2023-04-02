@@ -5,6 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
+    <style>
+      #circle {
+	width: 100px;
+	height: 100px;
+	background: red;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+  cursor: pointer;
+}
+    </style>
 </head>
 <body>
     <!--Test 2-->
@@ -32,8 +43,10 @@
   <div id="slider">
     <img id="slider-img" src="./img/about-img.jpg" alt="Image">
   </div>
-  
 
+  <!--Test7-->
+  <div id="circle" onclick="changeCircleColor()">
+  </div>
 
 
 
@@ -125,6 +138,16 @@ function imgSlider() {
 }
 
 setInterval(imgSlider, 2000); // Chuyển đổi ảnh sau mỗi 2 giây
+
+
+//test7
+function changeCircleColor() {
+  const circle = document.getElementById('circle');
+  const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff'];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  circle.style.backgroundColor = randomColor;
+}
+
 
 
 
