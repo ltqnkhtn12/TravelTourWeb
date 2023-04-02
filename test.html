@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Test</title>
 </head>
 <body>
     <!--Test 2-->
@@ -27,6 +27,21 @@
 
   <!--Test5-->
   <div id="myDiv" class="box">A box</div>
+
+  <!--Test6-->
+  <div id="slider">
+    <img id="slider-img" src="./img/about-img.jpg" alt="Image">
+  </div>
+  
+
+
+
+
+
+
+
+
+
 
 
   <script>
@@ -97,6 +112,27 @@ console.log(Array.from(myDiv.classList.keys()));
 
 // In ra tất cả các tên của các lớp trong danh sách lớp của phần tử
 console.log(Array.from(myDiv.classList.values()));
+
+
+//Test6
+const images = ['./img/blog-1.jpg', './img/blog-3.jpg', './img/blog-2.jpg'];
+let i = 0;
+
+function imgSlider() {
+  const sliderImg = document.getElementById('slider-img');
+  sliderImg.src = images[i];
+  i = (i + 1) % images.length;
+}
+
+setInterval(imgSlider, 2000); // Chuyển đổi ảnh sau mỗi 2 giây
+
+
+
   </script>
+
+
+
+
+
 </body>
 </html>
