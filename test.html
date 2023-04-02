@@ -26,6 +26,8 @@
   <img id="myImage" alt="A beautiful flower">
 
   <!--Test5-->
+  <div id="myDiv" class="box">A box</div>
+
 
   <script>
     const buttons = document.querySelectorAll('button');
@@ -62,6 +64,39 @@ const myImage = document.getElementById('myImage');
 myImage.setAttribute('src', './img/pic-2.jpg');
 
 
+//Test5
+const myDiv = document.getElementById('myDiv');
+
+// Thêm lớp 'red' vào phần tử
+myDiv.classList.add('red');
+
+// Kiểm tra xem lớp 'box' có tồn tại trên phần tử hay không
+if (myDiv.classList.contains('box')) {
+  console.log('myDiv has class "box"');
+}
+
+// Xóa lớp 'box' khỏi phần tử
+myDiv.classList.remove('box');
+
+// Thêm lớp 'blue' vào phần tử và xóa lớp 'red'
+myDiv.classList.toggle('blue', true);
+myDiv.classList.toggle('red', false);
+// Thay thế lớp 'box' bằng lớp 'circle'
+myDiv.classList.replace('box', 'circle');
+
+// In ra tất cả các lớp trên phần tử
+console.log(myDiv.classList);
+
+// Duyệt qua tất cả các cặp [index, class] trong danh sách lớp của phần tử
+for (const [index, className] of myDiv.classList.entries()) {
+  console.log(`Class at index ${index}: ${className}`);
+}
+
+// In ra tất cả các chỉ số của các lớp trong danh sách lớp của phần tử
+console.log(Array.from(myDiv.classList.keys()));
+
+// In ra tất cả các tên của các lớp trong danh sách lớp của phần tử
+console.log(Array.from(myDiv.classList.values()));
   </script>
 </body>
 </html>
