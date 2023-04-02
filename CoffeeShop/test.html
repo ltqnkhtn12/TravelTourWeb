@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Test 2-->
+  <button id="button1">Button 1</button>
+  <button id="button2">Button 2</button>
+  <button id="button3">Button 3</button>
+  <button id="button4">Button 4</button>
+
+  <!--Test 2-->
+  <ul id="list"></ul>
+
+
+  <!--Test3-->
+  <h1>Example Heading</h1>
+  <p>Example paragraph text.</p>
+  <img src="./img/pic-1.jpg" alt="Example Image">
+
+  <!--Test4-->
+  <img id="myImage" alt="A beautiful flower">
+
+  <!--Test5-->
+
+  <script>
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+    button.addEventListener('click', () => {
+    console.log(`You clicked on button ${button.id}`);
+    });
+});
+
+//Test2
+const fruits = ['Apple', 'Banana', 'Orange', 'Grapes'];
+
+const list = document.getElementById('list');
+
+fruits.forEach(fruit => {
+  const item = document.createElement('li');
+  item.textContent = fruit;
+  list.appendChild(item);
+});
+
+//Test 3
+const elements = document.querySelectorAll('h1, p, img');
+
+elements.forEach(element => {
+  element.setAttribute('class', 'example');
+  element.setAttribute('style', 'color: blue;');
+});
+
+//Test4
+// Lấy phần tử <img> theo id
+const myImage = document.getElementById('myImage');
+
+// Thiết lập thuộc tính src của phần tử <img>
+myImage.setAttribute('src', './img/pic-2.jpg');
+
+
+  </script>
+</body>
+</html>
