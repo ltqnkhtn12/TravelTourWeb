@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
     <style>
+
+      * {
+        box-sizing: border-box;
+      }
+      /*Test7*/
       #circle {
 	width: 100px;
 	height: 100px;
@@ -15,6 +20,76 @@
 	border-radius: 50px;
   cursor: pointer;
 }
+
+/*Test8*/
+.display-container {
+  max-width: 500px;
+  position: relative;
+  margin: auto;
+}
+
+.display-container .mySlides {
+  display: none;
+}
+
+/*---Css Nút qua lại---*/
+.button-left{
+  left:1%;
+   font-size:20px;
+  }
+
+.button-right{
+  right:1%; 
+  font-size:20px; 
+}
+
+.image-button{
+  border:none;
+  display:inline-block;
+  padding:10px;
+  height:50px;
+  vertical-align:middle;
+  overflow:hidden; 
+  color:#fff;
+  background:#000;
+  position:absolute;
+  top:calc(50% - 25px); 
+  opacity:0.5;
+}
+
+.image-button:hover{color:#000;
+  background:#ccc;
+}
+
+/*---Css Chấm tròn---*/
+.badge {
+  text-align:center;
+  margin-bottom:16px; 
+  font-size:20px;
+  position:absolute;
+  bottom:0;
+}
+
+.badge-white{
+  color:#000!important;
+  background-color:#fff!important
+}
+
+.image-badge {
+  display:inline-block;
+  border-radius:50%;
+  height:14px;width:14px; 
+  border:1px solid #ccc;
+}
+
+.image-badge:hover{
+  background:#fff;
+}
+
+
+
+
+
     </style>
 </head>
 <body>
@@ -48,7 +123,27 @@
   <div id="circle" onclick="changeCircleColor()">
   </div>
 
+  <!--Test8-->
+  <div>
+    <h2 class="">Manual Slideshow</h2>
 
+<div class="display-container">
+  <img class="mySlides" src="./images/fl_1.jpg">
+  <img class="mySlides" src="./images/fl_2.jpg">
+  <img class="mySlides" src="./images/fl_3.jpg">
+  <img class="mySlides" src="./images/fl_4.jpg">
+
+  <button class="image-button button-left" onclick="plusDivs(-1)">&#10094;</button>
+  <button class="image-button button-right" onclick="plusDivs(1)">&#10095;</button>
+
+  <div class="badge" style="width:100%">
+
+    <span class="image-badge" onclick="currentDiv(1)"></span>
+    <span class="image-badge" onclick="currentDiv(2)"></span>
+    <span class="image-badge" onclick="currentDiv(3)"></span>
+  </div>
+</div>
+  </div>
 
 
 
@@ -147,6 +242,39 @@ function changeCircleColor() {
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
   circle.style.backgroundColor = randomColor;
 }
+
+
+//Test8
+//khai báo biến slideIndex đại diện cho slide hiện tại
+var slideIndex;
+  // KHai bào hàm hiển thị slide
+  function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides3");
+      var dots = document.getElementsByClassName("image-badge");
+      for (i = 0; i < slides.length; i++) {
+         slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+ 
+      slides[slideIndex].style.display = "block";  
+      dots[slideIndex].className += " active";
+      //chuyển đến slide tiếp theo
+      slideIndex++;
+      //nếu đang ở slide cuối cùng thì chuyển về slide đầu
+      if (slideIndex > slides.length - 1) {
+        slideIndex = 0
+      }    
+  }
+  //mặc định hiển thị slide đầu tiên 
+  showSlides(slideIndex = 0);
+ 
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
 
 
 

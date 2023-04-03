@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test2</title>
+    <style>
+
+        h2 {
+            font-size: 30px;
+            color: red;
+            font-family: cursive;
+            text-align: center;
+        }
+.display-container {
+  max-width: 560px;
+  position: relative;
+  margin: auto;
+}
+
+.display-container .mySlides {
+  display: none;
+}
+
+/*---Css Nút qua lại---*/
+.button-left{
+  left:1%;
+   font-size:20px;
+  }
+
+.button-right{
+  right:1%; 
+  font-size:20px; 
+}
+
+.image-button{
+  border:none;
+  display:inline-block;
+  padding:10px;
+  height:50px;
+  vertical-align:middle;
+  overflow:hidden; 
+  color:#fff;
+  background:#000;
+  position:absolute;
+  top:calc(50% - 25px); 
+  opacity:0.5;
+}
+
+.image-button:hover{
+  color:#000;
+  background:#ccc;
+}
+
+/*---Css Chấm tròn---*/
+.badge {
+  text-align:center;
+  margin-bottom:16px; 
+  font-size:20px;
+  position:absolute;
+  bottom:0;
+}
+
+.badge-white{
+  color:#000!important;
+  background-color:#fff!important
+}
+
+.image-badge {
+  display:inline-block;
+  border-radius:50%;
+  height:14px;width:14px; 
+  border:1px solid #ccc;
+}
+
+.image-badge:hover{
+  background:#fff;
+}
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <h2>LeeThijQuynhfNhuw</h2>
+    
+    <div class="display-container">
+      <img class="mySlides" src="./images/fl_1.jpg">
+      <img class="mySlides" src="./images/fl_2.jpg">
+      <img class="mySlides" src="./images/fl_3.jpg">
+      <img class="mySlides" src="./images/fl_4.jpg">
+    
+      <button class="image-button button-left" onclick="plusDivs(-1)">&#10094;</button>
+      <button class="image-button button-right" onclick="plusDivs(1)">&#10095;</button>
+    
+      <div class="badge" style="width:100%">
+    
+        <span class="image-badge" onclick="currentDiv(1)"></span>
+        <span class="image-badge" onclick="currentDiv(2)"></span>
+        <span class="image-badge" onclick="currentDiv(3)"></span>
+      </div>
+    </div>
+    </div>
+
+<script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+        
+        function plusDivs(n) {
+          showDivs(slideIndex += n);
+        }
+        
+        function showDivs(n) {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          if (n > x.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = x.length}
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          x[slideIndex-1].style.display = "block";  
+        }
+</script>
+</body>
+</html>
