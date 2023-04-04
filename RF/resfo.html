@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rf</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="./resfo.css">
 </head>
@@ -43,16 +44,16 @@
     <!--Home section starts-->
 
     <section class="home" id="home">
-        <div class="home-slider">
-            <div class="wrapper">
-                <div class="slide">
+        <div class="swiper home-slider">
+            <div class="swiper-wrapper wrapper">
+                <div class="swiper-slide slide">
                     <div class="content">
                         <span>Our speacial dish</span>
                         <h3>Spicy Noodles</h3>
                         <p>Tinh hoa ẩm thực. Con người Việt Nam.
                             Nấu cho mình, cho người, cho đời thêm vui.
                         </p>
-                        <a href="#" class="btn"></a>
+                        <a href="#" class="btn">Order Now</a>
                     </div>
                     <div class="image">
                         <img src="./img/home_img_1.jpg" alt="">
@@ -60,14 +61,14 @@
                     </div>
                 </div>
 
-                <div class="slide">
+                <div class="swiper-slide slide">
                     <div class="content">
                         <span>Our speacial dish</span>
                         <h3>Fried Chicken</h3>
-                        <p>Tinh hoa ẩm thực. Con người Việt Nam.
+                        <p>Tinh hoa ẩm thực. Con người Việt Nam.<br>
                             Nấu cho mình, cho người, cho đời thêm vui.
                         </p>
-                        <a href="#" class="btn"></a>
+                        <a href="#" class="btn">Order Now</a>
                     </div>
                     <div class="image">
                         <img src="./img/home_img_2.jpg" alt="">
@@ -75,14 +76,14 @@
                     </div>
                 </div>
 
-                <div class="slide">
+                <div class="swiper-slide slide">
                     <div class="content">
                         <span>Our speacial dish</span>
                         <h3>Hot Pizza</h3>
                         <p>Tinh hoa ẩm thực. Con người Việt Nam.
                             Nấu cho mình, cho người, cho đời thêm vui.
                         </p>
-                        <a href="#" class="btn"></a>
+                        <a href="#" class="btn">Order Now</a>
                     </div>
                     <div class="image">
                         <img src="./img/home_img_3.jpg" alt="">
@@ -90,6 +91,9 @@
                     </div>
                 </div>
             </div>
+
+            <div class="swiper-pagination"></div>
+
         </div>
     </section>
     <!--Home section ends-->
@@ -101,6 +105,8 @@
 
 
 
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="./resfo.js"></script>
 </body>
 </html>
