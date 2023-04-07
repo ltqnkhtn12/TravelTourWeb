@@ -1,0 +1,161 @@
+@import url('<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Delicious+Handrawn&family=Edu+NSW+ACT+Foundation&family=Geostar+Fill&family=Lato&family=Nanum+Brush+Script&family=Roboto+Condensed&family=Roboto:wght@300;400;500&family=Rubik+Gemstones&display=swap" rel="stylesheet">');
+@import url('@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css");');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    width: 85%;
+    height: 95%;
+    border: 1px solid #fff;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+header .menu-side, .song-side {
+    position: relative;
+    width: 25%;
+    height: 90%;
+    border: 1px solid #fff;
+    background-color: #111727;
+    box-shadow: 5px 0px 2px #090f1f;
+    color: #fff;
+}
+
+header .song-side {
+    width: 75%;
+    background: #0b1320;
+}
+
+header .master-play {
+    width: 100%;
+    height: 10%;
+    background: #111727;
+    box-shadow: 0px 3px 8px #090f1f;
+}
+
+header .menu-side h1 {
+    font-size: 20px;
+    margin: 15px 0px 0px 20px;
+    font-weight: 500;
+}
+
+header .menu-side .playlist {
+    margin: 40px 0px 0px 20px;    
+}
+
+header .menu-side .playlist h4 {
+    font-size: 14px;
+    font-weight: 400;
+    padding-bottom: 10px;
+    color: #4c5262;
+    display: flex;
+    align-items: center;
+    transition: .3s linear;
+}
+
+header .menu-side .playlist h4:hover {
+    color: #fff;
+}
+
+header .menu-side .playlist h4 span {
+    position: relative;
+    margin-right: 35px;
+}
+
+header .menu-side .playlist h4::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border: 2px solid #4c5262;
+    border-radius: 50%;
+    top: -4px;
+    transition: .3s linear;
+}
+
+header .menu-side .playlist h4:hover span:hover {
+    border: 2px solid #fff;
+}
+
+header .menu-side .playlist h4 .bi {
+    display: none;
+}
+
+header .menu-side .playlist .active {
+    color: #36e2ec;
+}
+
+header .menu-side .playlist .active span {
+    display: none;
+}
+
+header .menu-side .playlist .active .bi {
+    display: flex;
+    margin-right: 20px;
+}
+
+header .menu-side .menu-song {
+    width: 100%;
+    height: 320px;
+    border: 1px solid #fff;
+    margin-top: 40px;
+}
+
+header .menu-side .menu-song li {
+    position: relative;
+    list-style-type: none;
+    padding: 5px 0 5px 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+header .menu-side .menu-song li:hover {
+    background: rgb(105,105,170,.1);
+}
+
+header .menu-side .menu-song li span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #4c5262;
+}
+
+header .menu-side .menu-song li img {
+    width: 32px;
+    height: 32px;
+    margin-left: 25px;
+    object-fit: cover;
+}
+
+header .menu-side .menu-song li h5 {
+    font-size: 11px;
+    margin-left: 10px;
+}
+
+header .menu-side .menu-song li h5 .subtitle {
+    font-size: 9px;
+    color: #4c5262;
+}
+
+header .menu-side .menu-song li .bi {
+    position: absolute;
+    right: 15px;
+    top: 6px;
+
+}
