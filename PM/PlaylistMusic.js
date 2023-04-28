@@ -234,7 +234,7 @@ back.addEventListener('click', ()=>{
         index = Array.from(document.getElementsByClassName('songItem')).length;
     }
     music.src = `audio/${index}.mp3`;
-    poster_master_play.src =`img/${index}.jpg`;
+
     music.play();
     let song_title = songs.filter((ele)=>{
         return ele.id == index;
@@ -259,7 +259,7 @@ next.addEventListener('click', ()=>{
         index = 1;
         }
     music.src = `audio/${index}.mp3`;
-    poster_master_play.src =`img/${index}.jpg`;
+
     music.play();
     let song_title = songs.filter((ele)=>{
         return ele.id == index;
@@ -300,4 +300,3 @@ left_scrolls.addEventListener('click', ()=>{
 })
 right_scrolls.addEventListener('click', ()=>{
     item.scrollLeft += 330;
-})
