@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30DaysOfJs_day3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #333;
+            font-family: sans-serif;
+            color: white;
+            font-size: 25px;
+            font-weight: 500;
+        }
+        
+        h1 {
+            text-align: center;
+            color: aqua;
+            padding-top: 10px;
+            font-style: italic;
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes example {
+            0%   {color: red;}
+            10%  {color: yellow;}
+            20%  {color: blue;}
+            30% {color: green;}
+            40%   {color: purple;}
+            50%  {color: orangered;}
+            60%  {color: white;}
+            70% {color: fuchsia;}
+            80%  {color: peru;}
+            90% {color: rosybrown;}
+            100%  {color: olivedrab;}
+}
+    </style>
+</head>
+<body>
+    <h1>30 Days Of JavaScript - Day 3</h1>
+    
+    <script>
+
+        //EXERCISES: LEVEL 1
+        //1. Declare firstName, lastName, country, city, age, isMarried, year variable and assign value to it and use the typeof operator to check different data types.
+        let firstName = "Le";
+        let lastName = "Nhu";
+        let country = "VietNam";
+        let city = "HoChiMinh";
+        let age = 23;
+        let isMarried = "Single";
+        let year = 2023;
+        console.log(firstName,lastName,country,city,age,isMarried,year)
+        
+        //2. Check if type of '10' is equal to 10
+        let x = '10';
+        let y = 10;
+        console.log(x==y)
+        console.log(x===y)
+
+        //3.Check if parseInt('9.8') is equal to 10
+        let x1 = parseInt('9.8');
+        let y1 = 10;
+        console.log(x1==y1)
+        console.log(x1===y1)
+
+        //4i.Write three JavaScript statement which provide truthy value.
+        let x2 = 3;
+        console.log(x2>0)
+        let str = "My name is Nhu";
+        console.log(str.includes('Nhu'))
+        let x3 = -4;
+        let x4 = 5;
+        console.log(x3<x4)
+
+        //4ii.Write three JavaScript statement which provide falsy value.
+        console.log('10'===10);
+        console.log(NaN==null);
+        console.log(undefined === null)
+
+        //5. Figure out the result of the following comparison expression first without using console.log(). After you decide the result confirm it using console.log()
+        console.log(4>3)
+        console.log(4>=3)
+        console.log(4<3)
+        console.log(4==4)
+        console.log(4===4)
+        console.log(4!=4)
+        console.log(4!==4)
+        console.log(4!='4')
+        console.log(4=='4')
+        console.log(4==='4')
+        console.log('python'.length == 'jargon'.length)
+
+        //6.Figure out the result of the following expressions first without using console.log(). After you decide the result confirm it by using console.log()
+        console.log(4>3&&10<12)
+        console.log(4>3&&10>12)
+        console.log(4>3||10<12)
+        console.log(4>3||10>12)
+        console.log(!(4>3))
+        console.log(!(4<3))
+        console.log(!(false))
+        console.log(!(4>3&&10<12))
+        console.log(!(4>3&&10>12))
+        console.log(!(4==='4'))
+        console.log('python'.includes('on')=='dragon'.includes('on'))
+
+        //7i.What is the year today?
+        const now = new Date()
+        console.log(now.getFullYear())
+        //7ii.What is the month today as a number?
+        console.log(now.getMonth())
+        //7iii.What is the date today?
+        console.log(now.getDate())
+        //7iv.What is the day today as a number?
+        console.log(now.getDay())
+        //7v.What is the hours now?
+        console.log(now.getHours())
+        //7vi.What is the minutes now?
+        console.log(now.getMinutes())
+
+        const ago = new Date(1970,1,1)
+        console.log(now - ago)
+
+        ////EXERCISES: LEVEL 2
+        //1.Write a script that prompt the user to enter base and height of the triangle and calculate an area of a triangle (area = 0.5 x b x h).
+        let base = Number(prompt('Enter base: '))
+        let height = Number(prompt('Enter height: '))
+        let area = 0.5*base*height;
+        console.log(`The area of the triangle is ${area}`)
+
+        //2.Write a script that prompt the user to enter side a, side b, and side c of the triangle and and calculate the perimeter of triangle (perimeter = a + b + c)
+        let sideA = Number(prompt('Enter side a: '))
+        let sideB = Number(prompt('Enter side b: '))
+        let sideC = Number(prompt('Enter side c: '))
+        let perimeter = sideA+sideB+sideC;
+        console.log(`The perimeter of the triangle is ${perimeter}`)
+
+        //3.Get length and width using prompt and calculate an area of rectangle (area = length x width and the perimeter of rectangle (perimeter = 2 x (length + width))
+        let chieuDai = Number(prompt('Enter length: '))
+        let chieuRong = Number(prompt('Enter width: '))
+        let chuViHCN = (chieuDai+chieuRong)/2;
+        let dienTichHCN = chieuDai*chieuRong;
+        console.log(`Area of Reactangle is ${dienTichHCN} \n`,`Perimeter of Rectangle is ${chuViHCN}`)
+
+        //4.Get radius using prompt and calculate the area of a circle (area = pi x r x r) and circumference of a circle(c = 2 x pi x r) where pi = 3.14.
+        let pi = Number(prompt('Enter pi: '))
+        let radius = Number(prompt('Enter radius: '))
+        let areaCircle = pi*radius*radius;
+        let circumference = 2*pi*radius;
+        console.log(`area of a circle is ${areaCircle} \n`,`circumference of a circle is ${circumference}`)
+
+        //5.Calculate the slope, z-intercept and t-intercept of z = 2t -2
+        let a = Number(prompt('Enter a: '))
+        let b = Number(prompt('Enter b: '))
+        let slope = a;
+        let z_intercept = -b;
+        let t_intercept = -b/a;
+        console.log(`the slope is ${slope}`)
+        console.log(`z-intercept is ${z_intercept}`)
+        console.log(`t-intercept is ${t_intercept}`)
+
+        //6.Slope is m = (y2-y1)/(x2-x1). Find the slope between point (2, 2) and point(6,10)
+        //7.Compare the slope of above two questions.
+        //8.Calculate the value of y (y = x2 + 6x + 9). Try to use different x values and figure out at what x value y is 0.
+        //9.Write a script that prompt a user to enter hours and rate per hour. Calculate pay of the person?
+
+        let h = Number(prompt('Enter hours'))
+        let r = Number(prompt('Enter rate per hour: '))
+        let earn = h*r;
+        console.log(`Your weekly earning is ${earn}`)
+
+        //10. If the length of your name is greater than 7 say, your name is long else say your name is short.
+        let name = String(prompt('Enter your name: '))
+        if (name.length > 7 ) {
+            console.log("Your name is long")
+        }
+        else {
+            console.log("Your name is short")
+        }
+
+        //11. Compare your first name length and your family name length and you should get this output.
+        let firstName1 = 'Asabeneh'
+        let lastName1 = 'Yetayeh'
+        if (firstName1.length>lastName1.length) {
+            console.log(`Your first name, ${firstName1} is longer than your family name, ${lastName1}`)
+        }
+        else if (firstName1.length<lastName1.length) {
+            console.log(`Your first name, ${firstName1} is shorter than your family name, ${lastName1}`)
+        }
+        else {
+            console.log(`Your first name, ${firstName1} is as long as your family name, ${lastName1}`)
+        }
+
+        //12.Declare two variables myAge and yourAge and assign them initial values and myAge and yourAge.
+        let myAge = 250;
+        let yourAge = 25;
+        if(myAge>yourAge) {
+            let distanceAge = myAge - yourAge;
+            console.log(`I am ${distanceAge} years older than you `)
+        }
+        else {
+            let distanceAge = -myAge + yourAge;
+            console.log(`you are ${distanceAge} years older than me `)
+        }
+
+        //13. Using prompt get the year the user was born and if the user is 18 or above allow the user to drive if not tell the user to wait a certain amount of years.
+        let birthYear = Number(prompt('Enter birth year: '))
+        const yNow = now.getFullYear()
+        const yAge = yNow - birthYear
+        const enoughAge = 18 - yAge
+        if (yAge >= 18 ) {
+            console.log(`You are ${yAge}. You are old enough to drive`)
+        }
+        else {
+            console.log(`You are ${yAge}. You will be allowed to drive after ${enoughAge} years`)
+        }
+
+        //14.Write a script that prompt the user to enter number of years. Calculate the number of seconds a person can live. Assume some one lives just hundred years
+        let yearsLive = Number(prompt('Enter number of years you live'))
+        let years = yearsLive*365*24*60*60;
+        console.log(`You lived ${years} second`)
+
+        //15.YYYY-MM-DD HH:mm, DD-MM-YYYY HH:mm, DD/MM/YYYY HH:mm
+        let nam = now.getFullYear()
+        let thang = now.getMonth()
+        let ngay = now.getDate()
+        let gio = now.getHours()
+        let phut = now.getMinutes()
+
+        console.log(`${nam} - ${thang} - ${ngay} \t ${gio}:${phut}`)
+        console.log(`${ngay} - ${thang} - ${nam} \t ${gio}:${phut}`)
+        console.log(`${nam} / ${thang} / ${ngay} \t ${gio}:${phut}`)
+
+        //EXERCISE: LEVEL 3 Create a human readable time format using the Date time object. The hour and the minute should be all the time two digits(7 hours should be 07 and 5 minutes should be 05 )
+        if (thang < 10 ) {thang = "0"+thang}
+        if (ngay < 10 ) {ngay = "0"+ngay}
+        if (gio < 10 ) {gio = "0"+gio}
+        if (phut < 10 ) {phut = "0"+phut}
+        console.log(`${nam} - ${thang} - ${ngay} \t ${gio}:${phut}`)
+
+
+    </script>
+</body>
+</html>
