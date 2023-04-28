@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30DaysOfJs_day2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #333;
+            font-family: sans-serif;
+            color: white;
+            font-size: 25px;
+            font-weight: 500;
+        }
+        
+        h1 {
+            text-align: center;
+            color: aqua;
+            padding-top: 10px;
+            font-style: italic;
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes example {
+            0%   {color: red;}
+            10%  {color: yellow;}
+            20%  {color: blue;}
+            30% {color: green;}
+            40%   {color: purple;}
+            50%  {color: orangered;}
+            60%  {color: white;}
+            70% {color: fuchsia;}
+            80%  {color: peru;}
+            90% {color: rosybrown;}
+            100%  {color: olivedrab;}
+}
+    </style>
+</head>
+<body>
+    
+    <h1>30 Days Of JavaScript - Day 2</h1>
+    <div id="bai1"></div>
+    <div id="bai2"></div>
+
+    <script>
+        bai1 = document.getElementById("bai1").innerHTML = "30 Days Of JavaScript";
+        console.log(bai1.length);
+        console.log(bai1.toUpperCase()) // In hoa tất cả các ký tự
+
+        console.log(bai1.toLowerCase()) // đưa tất cả về dạng thường không in hoa
+
+        console.log(bai1.substr(0,1)) // lấy kí tự
+
+        console.log(bai1.substring(0,1)) // như substr
+
+        console.log(bai1.substr(3)) // lấy từ kí tự thứ 3 trở về sau, bắt đầu là 0
+        
+        console.log(bai1.includes('Script')) // kiểm tra xem có tồn tại không
+
+        console.log(bai1.split()) // tách thành array
+
+        console.log(bai1.split(' ')) //đưa vào array => arr[i] => cho biết length arr
+
+        console.log(bai1.replace('JavaScript','Python')) //thay thế (cần thay thế, thay thế)
+
+        console.log(bai1.charAt(15)) // lấy kí tự ở vị trí 15
+
+        console.log(bai1.charCodeAt(11)) // lấy kí tự ở vị trí 11 rồi đưa về ASCI 16
+
+        console.log(bai1.indexOf('a')) // kiểm tra xem vị trí của kí tự nằm ở đâu
+
+        let bai17 = "You cannot end a sentence with because because because is a conjunction";
+        console.log(bai17.indexOf('because')) // kiểm tra vị trí bắt đầu của chuỗi
+
+        console.log(bai1.trim())
+
+        console.log(bai1.startsWith('30')) // kiểm tra vị trí đầu tiên có đúng định dạng không
+
+        console.log(bai1.endsWith('JavaScript')) // kiểm tra vị trí cuối cùng có đúng định dạng không
+
+        console.log(bai1.match('a')) // chỉ ra chuỗi kí tự nằm ở index mấy, lấy từ đâu, chiều dài bao nhiêu
+
+        let bai24 = "30 Days Of "
+        console.log(bai24.concat('JavaScript')) // nối vào cuối chuỗi có sẵn
+
+        console.log(bai1.repeat(2)) // lặp lại chuỗi (số lần lặp)
+
+        //Exercise: Level 2
+
+        let quote = "The quote \'There is no exercise better for the heart than reaching down and lifting people up.'\ by John Holmes teaches us to help one another.";
+        console.log(quote)
+
+        let quote1 = "\"Love is not patronizing and charity isn't about pity, it is about love. Charity and love are the same -- with charity you give love, so don't just give money but reach out your hand instead.\""
+        console.log(quote1)
+
+        let check="python and jargon"
+        console.log(check.includes('on'))
+
+        let check1 = "I hope this course is not full of jargon"
+        console.log(check1.includes('jargon'))
+
+        let randomNum = Math.random()
+        let numBtnZeroAndOneHundred = randomNum*111
+        let randomNumRoundToFloor=Math.floor(numBtnZeroAndOneHundred)
+        console.log(randomNumRoundToFloor)
+
+        let randomNum1 = Math.random()
+        let numBtnZeroAndOneHundred1 = randomNum1*256
+        let randomNumRoundToFloor1=Math.floor(numBtnZeroAndOneHundred1)
+        console.log(randomNumRoundToFloor1)
+
+        console.log('1\t1\t1\t1\t1\n2\t1\t2\t4\t8\n3\t1\t3\t9\t27\n4\t1\t4\t16\t64\n5\t1\t5\t25\t125')
+
+        let bai12 = "You cannot end a sentence with because because because is a conjunction"
+        console.log(bai12.indexOf('because'))
+        console.log(bai12.search('because'))
+        console.log(bai12.substr(31, 54))
+
+        //Exercises: Level 3
+
+        let b1 = "love is the best thing in this world. Some found their love and some are still looking for their love."
+        count = 0 ;
+        for (let i=0; i<count;i++) {
+            kt=console.log(b1.includes('love'))
+            if (kt==true) {
+                count = count + 1;
+            }
+        }
+        console.log(count)
+
+        let salary = 5000;
+        let bonus = 10000;
+        let overtime = 15000;
+        let income = salary*12+bonus+overtime*12;
+        console.log(income)
+        
+
+    </script>
+
+</body>
+</html>

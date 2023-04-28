@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #333;
+            font-family: sans-serif;
+            color: white;
+            font-size: 25px;
+            font-weight: 500;
+        }
+        
+        h1 {
+            text-align: center;
+            color: aqua;
+            padding-top: 10px;
+            font-style: italic;
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes example {
+            0%   {color: red;}
+            10%  {color: yellow;}
+            20%  {color: blue;}
+            30% {color: green;}
+            40%   {color: purple;}
+            50%  {color: orangered;}
+            60%  {color: white;}
+            70% {color: fuchsia;}
+            80%  {color: peru;}
+            90% {color: rosybrown;}
+            100%  {color: olivedrab;}
+}
+    </style>
+</head>
+<body>
+    <h1>30 Days Of JavaScript - Day 4</h1>
+
+    <script>
+        //Exercises: Level 1
+
+        //1.Get user input using prompt(“Enter your age:”). If user is 18 or older , give feedback:'You are old enough to drive' but if not 18 give another feedback stating to wait for the number of years he needs to turn 18.
+        let age = Number(prompt('Enter your age: '))
+        let enAge = 18 - age;
+        if (age >= 18) {
+            console.log("You are old enough to drive")
+        }
+        else {
+            console.log(`You are lefr with ${enAge} years to drive`)
+        }
+
+        //2.Compare the values of myAge and yourAge using if … else. Based on the comparison and log the result to console stating who is older (me or you). Use prompt(“Enter your age:”) to get the age as input.
+        let myAge = 250;
+        let yourAge = 25;
+        if(myAge>yourAge) {
+            let distanceAge = myAge - yourAge;
+            console.log(`I am ${distanceAge} years older than you `)
+        }
+        else {
+            let distanceAge = -myAge + yourAge;
+            console.log(`you are ${distanceAge} years older than me `)
+        }
+
+        //3.If a is greater than b return 'a is greater than b' else 'a is less than b'. Try to implement it in to ways
+        let a = 4;
+        let b = 3;
+
+        if (a>b) {
+            console.log("a is greater than b")
+        }
+        else {
+            console.log("a is less than b")
+        }
+
+        //4. Even numbers are divisible by 2 and the remainder is zero. How do you check, if a number is even or not using JavaScript?
+        let number = Number(prompt('Enter a number'))
+        if (number%2==0) {
+            console.log(`${number} is an even number`)
+        }
+        else {
+            console.log(`${number} is an odd number`)
+        }
+
+        //Exercises: Level 2
+
+        //1.Write a code which can give grades to students according to theirs scores:
+        let score = Number(prompt('Enter your score: '))
+        if (score>=80) {
+            console.log("A")
+        } else if (score>=70 && score<79) {
+            console.log("B")
+        } else if (score>=60 & score<69) {
+            console.log("C")
+        } else if (score>=50 && score<59) {
+            console.log("D")
+        } else {
+            console.log("F")
+        }
+
+        //2.Check if the season is Autumn, Winter, Spring or Summer. If the user input is :
+        let month = Number(prompt('Enter number month: '));
+        switch(month) {
+            case month === 12,1,2:
+                console.log("Winter");
+                break;
+            case month === 3,4,5: 
+            console.log("Spring");
+            break;
+            case month === 6,7,8:
+            console.log("Summer");
+            break;
+            default:  console.log("Autumn");
+        }
+
+        //3.Check if a day is weekend day or a working day. Your script will take day as an input.
+        let now = new Date()
+        let day = now.getDay()
+
+        if (day >=7) {
+            console.log(`What is the day today? ${day} \n ${day} is a weekend`)
+        } else {
+            console.log(`What is the day today? ${day} \n ${day} is a working day`)
+        }
+
+        //Exercises: Level 3 Write a program which tells the number of days in a month, now consider leap year.
+        let month_now = now.getMonth()
+        let year_now = now.getFullYear()
+        switch (month_now) {
+            case month_now ===1,3,5,7,8,10,12:
+                numberDate = 31
+                break;
+            case month_now === 2:
+                if (year_now%4==0 && year_now%100!=0) {
+                    numberDate=29
+                }
+                else {
+                    numberDate = 28
+                }
+                break;
+            default:
+                numberDate=30;
+        }
+
+        if (year_now%4==0 && year_now%100!=0) {
+            console.log(`Number of Month is ${numberDate}`)
+            console.log("This year is leap year")
+        }
+        else {
+            console.log(`Number of Month is ${numberDate}`)
+            console.log("This year is not leap year")
+        }
+    </script>
+</body>
+</html>
