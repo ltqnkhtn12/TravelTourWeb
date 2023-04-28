@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #333;
+            font-family: sans-serif;
+            color: white;
+            font-size: 25px;
+            font-weight: 500;
+        }
+        
+        h1 {
+            text-align: center;
+            color: aqua;
+            padding-top: 10px;
+            font-style: italic;
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes example {
+            0%   {color: red;}
+            10%  {color: yellow;}
+            20%  {color: blue;}
+            30% {color: green;}
+            40%   {color: purple;}
+            50%  {color: orangered;}
+            60%  {color: white;}
+            70% {color: fuchsia;}
+            80%  {color: peru;}
+            90% {color: rosybrown;}
+            100%  {color: olivedrab;}
+}
+    </style>
+</head>
+<body>
+    <h1>30 Days Of JavaScript - Day 6</h1>
+
+    <script>
+        //Exercises: Level 1
+
+        //1.Iterate 0 to 10 using for loop, do the same using while and do while loop
+        for(let i=0; i< 11;i++)
+        {
+            console.log(i)
+        }
+        
+        let i=0;
+        while (i<10) {
+            i++;
+            console.log(i)
+        }
+
+        let x=0;
+        do {
+            console.log(x)
+            x++
+        } while(x<=10)
+
+
+        //2.Iterate 10 to 0 using for loop, do the same using while and do while loop
+        for(let i1=10; i1>0;i1--)
+        {
+            console.log(i1)
+        }
+        
+        let i2=10;
+        while (i2>0) {
+            i2--;
+            console.log(i2)
+        }
+
+        let x1=10;
+        do {
+            console.log(x1)
+            x1--
+        } while(x1>=0)
+
+        //3.Iterate 0 to n using for loop
+        let n = 7
+        for(let i=0;i<n;i++) {
+            console.log(i)
+        }
+
+        //4.Write a loop that makes the following pattern using console.log():
+        for (let i=1;i<=7;i++) {
+            console.log("#".repeat(i)) //# ## ### #### ...
+        }
+
+        //5.Use loop to print the following pattern:
+        for (let i =0; i<=10;i++) {
+            console.log(`${i}*${i}=${i*i}`) //0*0 1*1 ... 10*10
+        }
+
+        //6. Using loop print the following pattern
+        for (let i =0; i<=10;i++) {
+            console.log(`${i}\t${i}^2=${i*i}\t${i}^3=${i*i*i}`)
+        }
+
+        //7.Use for loop to iterate from 0 to 100 and print only even numbers
+        for(let i=0; i< 100;i++)
+        {
+            if (i%2===0) {
+                console.log(i)
+            }
+        }
+
+        //8.Use for loop to iterate from 0 to 100 and print only odd numbers
+        for(let i=0; i<100;i++)
+        {
+            if (i%2!==0) {
+                console.log(i)
+            }
+        }
+
+        //9.Use for loop to iterate from 0 to 100 and print only prime numbers
+        let count = 0
+        for(let i=0;i<101;i++)
+        {
+            let count = 0
+            for(let j=1;j<=i;j++) {
+                if (i%j===0) {
+                count++
+                }
+            }
+            if (count===2) {
+                console.log(i)
+            }
+        }
+
+        //10.Use for loop to iterate from 0 to 100 and print the sum of all numbers.
+        let sum=0
+        for (let i =0; i<=100;i++) {
+            sum = sum + i;
+            console.log(`The sum of all evens from o to 100 is ${sum}`)
+        }
+
+        //11.Use for loop to iterate from 0 to 100 and print the sum of all evens and the sum of all odds.
+        let sum2=0
+        let sum1 = 0
+        for(let i=0; i<=100;i++)
+        {
+            if (i%2===0) {
+                sum2=sum2+i;
+            }
+            else {
+                sum1=sum1+i;
+            }
+            console.log(`The sum of all evens from 0 to 100 is ${sum2}.Annd the sum of all odds from 0 to 100 is ${sum1}`)
+        }
+
+        //12.Use for loop to iterate from 0 to 100 and print the sum of all evens and the sum of all odds. Print sum of evens and sum of odds as array
+        let sum3=0
+        let sum4 = 0
+        for(let i=0; i<=100;i++)
+        {
+            if (i%2===0) {
+                sum3=sum3+i;
+            }
+            else {
+                sum4=sum4+i;
+            }
+            console.log(`[${sum3},${sum4}]`)
+        }
+
+        //13. Develop a small script which generate array of 5 random numbers
+        const array = Array.from({ length: 5 }, () => Math.floor(Math.random() * 50))
+        console.log(array)
+
+        //15-and-2.1.Develop a small script which generate any characters random id:
+        let result = ''
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+        const charactersLength = characters.length
+        let counter = 0
+        while (counter < array.length) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength))
+            counter += 1
+        }
+        console.log(result)
+
+        //Exercises: Level 2
+
+        //1-and-1.15
+        
+        //4,5,6
+        const countries = ['Albania','Bolivia','Canada','Denmark','Ethiopia','Finland','Germany','Hungary','Ireland','Japan','Kenya']
+        for (let i=0; i<countries.length;i++) {
+            console.log(countries[i].toLocaleUpperCase())
+            console.log(countries[i].length)
+        }
+        let newArr = []
+        for(let i=0;i<countries.length;i++) {
+            newArr.push(countries[i], countries[i].slice(0,3).toLocaleUpperCase(),countries[i].length)
+            console.log(newArr)
+        }
+
+        //Exercises: Level 3
+
+    </script>
+</body>
+</html>

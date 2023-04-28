@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #333;
+            font-family: sans-serif;
+            color: white;
+            font-size: 25px;
+            font-weight: 500;
+        }
+        
+        h1 {
+            text-align: center;
+            color: aqua;
+            padding-top: 10px;
+            font-style: italic;
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes example {
+            0%   {color: red;}
+            10%  {color: yellow;}
+            20%  {color: blue;}
+            30% {color: green;}
+            40%   {color: purple;}
+            50%  {color: orangered;}
+            60%  {color: white;}
+            70% {color: fuchsia;}
+            80%  {color: peru;}
+            90% {color: rosybrown;}
+            100%  {color: olivedrab;}
+}
+    </style>
+</head>
+<body>
+    <h1>30 Days Of JavaScript - Day 5</h1>
+
+    <script>
+        
+        //Exercise: Level 1
+
+        //1.Exercise: Level 1
+        let arr = []
+        console.log(arr)
+
+        //2.Declare an array with more than 5 number of elements
+        let arr1 = [1,2,3,4,5,6]
+        console.log(arr1)
+
+        //3.Find the length of your array
+        console.log(arr1.length)
+        let n = arr1.length;
+        let mid=n/2
+        let last = n-1
+
+        //4.Get the first item, the middle item and the last item of the array
+        console.log(arr1[0])
+        console.log(arr1[mid])
+        console.log(arr1[last])
+
+        //5.Declare an array called mixedDataTypes, put different data types in the array and find the length of the array. The array size should be greater than 5
+        let mixedDataTypes = [1,"Nhu",4,"Quyen",7,"mother",9,10, {City: ['HoCHiMinh','DaNang','DaLat']}]
+        console.log(mixedDataTypes)
+        console.log(mixedDataTypes.length)
+
+        //6.Declare an array variable name itCompanies and assign initial values Facebook, Google, Microsoft, Apple, IBM, Oracle and Amazon
+        let itCompanies = ['Facebook','Google','Microsoft','Apple','IBM','Oracle','Amazon']
+        //7.Print the array using console.log()
+        console.log(itCompanies)
+        //8.Print the number of companies in the array
+        console.log(itCompanies.length)
+        //9.Print the first company, middle and last company
+        console.log(itCompanies[0])
+        //10.Print out each company
+        for (let i=0;i<itCompanies.length;i++) {
+            console.log(itCompanies[i])
+        }
+        //11.Change each company name to uppercase one by one and print them out
+        for (let i=0;i<itCompanies.length;i++) {
+            console.log(itCompanies[i].toLocaleUpperCase())
+        }
+        //12.Print the array like as a sentence: Facebook, Google, Microsoft, Apple, IBM,Oracle and Amazon are big IT companies.
+        console.log(`${itCompanies} are big IT companies`)
+        //13.Check if a certain company exists in the itCompanies array. If it exist return the company else return a company is not found
+        if (itCompanies.length > 1) {
+            console.log(itCompanies)
+        } else {
+            console.log('a company is not found')
+        }
+        //14.Filter out companies which have more than one 'o' without the filter method
+
+        //15.Sort the array using sort() method
+        console.log(itCompanies.sort())
+        //16.Reverse the array using reverse() method
+        console.log(itCompanies.reverse())
+        //17.Slice out the first 3 companies from the array
+        console.log(itCompanies.slice(3))
+        //18.Slice out the last 3 companies from the array
+        console.log(itCompanies.slice(itCompanies.length-3))
+        //19.Slice out the middle IT company or companies from the array
+        let toMidArr = itCompanies.slice(itCompanies.length/2)
+        console.log(toMidArr[0])
+        //20.Remove the first IT company from the array
+        console.log(itCompanies.shift()) //array đã được sắp xếp như câu trên theo alphabet
+        //21.Remove the middle IT company or companies from the array
+        console.log(toMidArr.shift())
+        //22.Remove the last IT company from the array
+        console.log(itCompanies.pop())
+        //23.Remove all IT companies
+        console.log(itCompanies.splice())
+
+        //Exercise: Level 2
+
+        //3.In the following shopping cart add, remove, edit items
+        const shoppingCart = ['Milk', 'Coffee', 'Tea', 'Honey']
+        const push_start = ['Meat']
+        const push_end = ['Sugar']
+
+        if (shoppingCart.indexOf('Meat') < 1)
+        {
+            console.log(push_start.concat(shoppingCart))
+        }
+        
+
+        if (shoppingCart.indexOf('Sugar')< 1) {
+            console.log(shoppingCart.concat(push_end))
+
+        }
+
+        let position_Honey = shoppingCart.lastIndexOf('Honey')
+        console.log(shoppingCart.splice(position_Honey,position_Honey))
+        console.log(shoppingCart)
+
+        let position_Tea = shoppingCart.lastIndexOf('Tea')
+        console.log(shoppingCart[position_Tea]='Green Tea')
+        console.log(shoppingCart)
+
+        //4.In countries array check if 'Ethiopia' exists in the array if it exists print 'ETHIOPIA'. If it does not exist add to the countries list.
+        const countries = ['Albania','Bolivia','Canada','Denmark','Ethiopia','Finland','Germany','Hungary','Ireland','Japan','Kenya']
+        let push_contry = ['Ethiopia']
+        if (countries.indexOf('Ethiopia') > -1 ) {
+            let position_Eth = countries.lastIndexOf('Ethiopia')
+            console.log(countries[position_Eth].toLocaleUpperCase())
+        } else {
+            console.log(countries.concat(push_contry))
+        }
+
+        //5.In the webTechs array check if Sass exists in the array and if it exists print 'Sass is a CSS preprocess'. If it does not exist add Sass to the array and print the array.
+        const webTechs = ['HTML','CSS','JavaScript','React','Redux','Node','MongoDB']
+        let push_webTechs = ['Sass']
+        if (webTechs.indexOf('Sass') < 1) {
+            console.log(webTechs.concat(push_webTechs))
+        }
+        else {
+            console.log("Sass is a CSS preprocess")
+        }
+
+        //6. Concatenate the following two variables and store it in a fullStack variable.
+        const frontEnd = ['HTML', 'CSS', 'JS', 'React', 'Redux']
+        const backEnd = ['Node','Express', 'MongoDB']
+        const fullStack = frontEnd.concat(backEnd)
+        console.log(fullStack)
+        //Exercise: Level 3
+
+        //1.The following is an array of 10 students ages:
+        const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+        console.log(ages.sort()) // sắp xếp mảng
+        console.log(ages[ages.length/2]) // lấy phần tử giữa
+        sum=0
+        max=0
+        min=ages[0]
+        for (let i=0;i<ages.length;i++) {
+            sum=sum+ages[i]
+            if(max<ages[i]) {
+                max = ages[i]
+            }
+            if(min>ages[i]) {
+                min = ages[i]
+            }
+        }
+        console.log(sum/ages.length) //tính trung bình
+        console.log(`${min};${max}`) // lấy vùng min,max
+        
+    </script>
+    
+</body>
+</html>
