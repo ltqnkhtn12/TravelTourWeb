@@ -287,8 +287,29 @@
 
        swapValues(3,4)
 
+       //6.Declare a function name reverseArray. It takes array as a parameter and it returns the reverse of the array (don't use method).
+       function reverseArr(input) {
+        var ret = new Array;
+        for(var i = input.length-1; i >= 0; i--) {
+        ret.push(input[i]);}
+        return ret;
+    }
+    var a = [3,5,7,8]
+    var b = ['A', 'B', 'C']
+    console.log(reverseArr(a));
+    console.log(reverseArr(b));
 
+    //7.Declare a function name capitalizeArray. It takes array as a parameter and it returns the - capitalizedarray.
+    const capitalizeArray = arr => {
+        const newArr = []
+        for (const element of arr) {
+            newArr.push(element.toUpperCase())
+        }
+        return newArr
+    }
 
+    const names = ['nhu','quyen','thuan','my','ngan']
+    console.log(capitalizeArray(names))
     </script>
 </body>
 </html>
