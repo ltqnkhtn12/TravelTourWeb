@@ -307,9 +307,22 @@
         }
         return newArr
     }
-
     const names = ['nhu','quyen','thuan','my','ngan']
     console.log(capitalizeArray(names))
+
+    //8.Declare a function name addItem. It takes an item parameter and it returns an array after adding the item
+    const addItem =['Cho','Meo']
+    addItem.push('Ga','Vit')
+    console.log(addItem)
+
+    //9.Declare a function name removeItem. It takes an index parameter and it returns an array after removing an item
+    const removeItem = ['Quyen','Nhu',"Thuan",'My','Huynh','Dang']
+    const newItem = removeItem.filter(m => {
+        return m!=="Nhu"
+    })
+    console.log(newItem)
+
+   
     </script>
 </body>
 </html>
