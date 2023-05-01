@@ -196,6 +196,41 @@
         //Trong JavaScript, find() và findIndex() là hai phương thức được sử dụng để tìm kiếm phần tử đầu tiên trong một mảng thỏa mãn điều kiện nào đó. 
         //find() trả về giá trị của phần tử đầu tiên trong mảng thỏa mãn điều kiện được chỉ định trong hàm callback. Nếu không có phần tử nào thỏa mãn điều kiện, phương thức sẽ trả về undefined.
         //findIndex() trả về chỉ số của phần tử đầu tiên trong mảng thỏa mãn điều kiện được chỉ định trong hàm callback. Nếu không có phần tử nào thỏa mãn điều kiện, phương thức sẽ trả về -1.
+        //điểm khác biệt giữa find() và findIndex() là find() trả về giá trị của phần tử đầu tiên thỏa mãn điều kiện, trong khi findIndex() trả về chỉ số của phần tử đầu tiên thỏa mãn điều kiện.
+
+        
+        //23.Use find to find the first country containing only six letters in the countries array
+        
+        const findFirstCountryContaining6letters = countries.find((country) => {
+            return country.length===6
+        })
+        console.log(findFirstCountryContaining6letters)
+
+        //24.Use findIndex to find the position of the first country containing only six letters in the countries array
+
+        const findIndexFirstCountryContaining6letters = countries.findIndex((country) => {
+            return country.length===6
+        })
+
+        console.log(findIndexFirstCountryContaining6letters)
+
+        //25.Use findIndex to find the position of Norway if it doesn't exist in the array you will get -1.
+        const findIndexNorway = countries.findIndex ((country) => {
+            return country.includes('Norway')
+        })
+        console.log(findIndexNorway)
+        //26. Use findIndex to find the position of Russia if it doesn't exist in the array you will get -1
+        const findIndexRussia = countries.findIndex ((country) => {
+            return country.includes('Russia')
+        })
+        console.log(findIndexRussia)
+
+        //Exercises: Level 2
+
+        //1.Find the total price of products by chaining two or more array iterators(eg. arr.map(callback).filter(callback).reduce(callback))
+        
+
+        
     </script>
     
 </body>
