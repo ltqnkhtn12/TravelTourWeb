@@ -228,9 +228,31 @@
         //Exercises: Level 2
 
         //1.Find the total price of products by chaining two or more array iterators(eg. arr.map(callback).filter(callback).reduce(callback))
-        
+        const products = [
+            { product: 'banana', price: 3 },
+            { product: 'mango', price: 6 },
+            { product: 'potato', price: ' ' },
+            { product: 'avocado', price: 8 },
+            { product: 'coffee', price: 10 },
+            { product: 'tea', price: '' },
+        ]
 
+        const totalPrice = products
+        .filter(product => product)
+        .map(product => product.price)
+        .reduce((acc,price) => {
+            return Number(acc + price)
+        },0)
+
+        console.log(totalPrice)
+
+        //2.Find the sum of price of products using only reduce reduce(callback))
         
+        const findSumOfPrice = products.reduce ((acc,product) => {
+            return Number(acc+product.price)
+        },0)
+
+        console.log(findSumOfPrice)
     </script>
     
 </body>
