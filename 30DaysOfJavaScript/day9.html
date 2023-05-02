@@ -253,6 +253,29 @@
         },0)
 
         console.log(findSumOfPrice)
+
+        //3.Declare a function called categorizeCountries which returns an array of countries which have some common pattern(you find the countries array in this repository as countries.js(eg 'land', 'ia', 'island','stan')).
+
+        function categorizeCountries (countries) {
+            const patterns = [
+                {name: 'land', countries: []},
+                {name: 'ia', countries: []},
+                {name: 'island', countries: []},
+                {name: 'stan', countries: []}
+            ]
+
+            countries.forEach((country) => {
+                patterns.forEach((pattern) => {
+                    if (country.toLowerCase().endsWith(pattern.name)) {
+                        pattern.countries.push(country)
+                    }
+                })
+            })
+
+            return patterns.map(pattern => pattern.countries);
+        }
+
+        console.log(categorizeCountries(countries));
     </script>
     
 </body>
