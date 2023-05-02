@@ -43,7 +43,7 @@
     </style>
 </head>
 <body>
-    <h1>30 Days Of JavaScript - Day 9</h1>v
+    <h1>30 Days Of JavaScript - Day 9</h1>
 
     <script>
         //Exercises: Level 1
@@ -276,6 +276,122 @@
         }
 
         console.log(categorizeCountries(countries));
+
+        //4.Create a function which return an array of objects, which is the letter and the number of times the letter use to start with a name of a country.
+
+        function countStartingLetters(countries) {
+            const counts = {}
+
+            countries.forEach((country) => {
+                const letter = country[0].toUpperCase()
+                counts[letter] = (counts[letter] || 0) + 1
+            })
+
+            return Object.entries(counts).map(([letter,count]) => ({letter,count}))
+        }
+
+        console.log(countStartingLetters(countries))
+
+        //Exercises: Level 3
+
+        //Try to develop a program which calculate measure of central tendency of a sample(mean, median, mode) and measure of variability(range, variance, standard deviation). In addition to those measures find the min, max, count, percentile, and frequency distribution of the sample. You can create an object called statistics and create all the functions which do statistical calculations as method for the statistics object. 
+        const statistics = {
+            sample: [],
+
+            //Measures of central tendency
+
+            sum: function() {
+                const sum = this.sample.reduce((acc, val) => acc + val, 0)
+                return sum
+            },
+
+            mean: function() {
+                const sum = this.sample.reduce((acc, val) => acc + val, 0)
+                const count = this.sample.length
+                return sum / count
+            },
+
+            median: function() {
+                const sorted = this.sample.slice().sort((a,b) => a-b)
+                const mid = Math.floor(sorted.length/2)
+                return sorted.length%2!==0 ? sorted[mid] : (sorted[mid-1] + sorted[mid]) / 2
+            },
+
+            mode: function() {
+                const counts = {}
+                let mode = null
+                let maxCount = 0
+
+                this.sample.forEach((val) => {
+                    counts[val] = (counts[val] || 0) + 1
+
+                    if (counts[val] > maxCount) {
+                        mode = val
+                        maxCount = counts[val]
+                    }
+                })
+
+                return mode
+            },
+
+            //Measures of variability
+            range: function() {
+                const sorted = this.sample.slice().sort((a,b) => a-b)
+                return sorted[sorted.length - 1] - sorted[0]
+            },
+
+            variance: function() {
+                const mean = this.mean()
+                const squaredDiffs = this.sample.map(val => (val - mean) ** 2)
+                return squaredDiffs.reduce((acc, val) => acc + val, 0) / (this.sample.length - 1)
+            },
+
+            standardDeviation: function() {
+                return Math.sqrt(this.variance())
+            },
+
+            //Other statistics
+            min: function() {
+                return Math.min(...this.sample);
+            },
+
+            max: function() {
+                return Math.max(...this.sample)
+            },
+
+            count: function() {
+                return this.sample.length
+            },
+
+            percentile: function(percent) {
+                const sorted = this.sample.slice().sort((a, b) => a - b)
+                const index = Math.ceil(percent / 100 * sorted.length) - 1
+                return sorted[index]
+            },
+
+            frequencyDistribution: function() {
+                const counts = {}
+                this.sample.forEach(val => counts[val] = (counts[val] || 0) + 1)
+                return counts
+            }
+        }
+
+        statistics.sample = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26]
+
+        console.log('Count:', statistics.count()) // 25
+        console.log('Sum: ', statistics.sum()) // 744
+        console.log('Mean: ', statistics.mean())
+        console.log('Min: ', statistics.min()) // 24
+        console.log('Max: ', statistics.max()) // 38
+        console.log('Range: ', statistics.range()) // 14
+        console.log('Mean: ', statistics.mean()) // 30
+        console.log('Median: ',statistics.median()) // 29
+        console.log('Mode: ', statistics.mode()) // {'mode': 26, 'count': 5}
+        console.log('Variance: ',statistics.variance()) // 17.5
+        console.log('Standard Deviation: ', statistics.standardDeviation())
+        console.log('Percentile: ', statistics.percentile(25))
+        console.log('Frequency Distribution: ',statistics.frequencyDistribution()) // [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
+
     </script>
     
 </body>
