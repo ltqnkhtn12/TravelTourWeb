@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 8</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #333;
+            font-family: sans-serif;
+            color: white;
+            font-size: 25px;
+            font-weight: 500;
+        }
+        
+        h1 {
+            text-align: center;
+            color: aqua;
+            padding-top: 10px;
+            font-style: italic;
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes example {
+            0%   {color: red;}
+            10%  {color: yellow;}
+            20%  {color: blue;}
+            30% {color: green;}
+            40%   {color: purple;}
+            50%  {color: orangered;}
+            60%  {color: white;}
+            70% {color: fuchsia;}
+            80%  {color: peru;}
+            90% {color: rosybrown;}
+            100%  {color: olivedrab;}
+}
+    </style>
+</head>
+<body>
+    <h1>30 Days Of JavaScript - Day 8</h1>
+    <script>
+        //Exercises: Level 1
+
+        //1.Create an empty object called dog
+        //2.Print the the dog object on the console
+        const Dog = {}
+        console.log(Dog)
+
+        //3.Add name, legs, color, age and bark properties for the dog object. The bark property is a method which return woof woof
+        //4.Get name, legs, color, age and bark value from the dog object
+        const dog = {
+            name: 'Bear',
+            legs: 4,
+            color: 'white',
+            bark: 'woof woof',
+
+            getInforDog:function() {
+            return `Name:${this.name}\tLegs:${this.legs}\tColor:${this.color}\tBark:${this.bark}`
+        }
+        }
+
+        console.log(dog.getInforDog())
+
+        //
+
+        const users = {
+  Alex: {
+    email: 'alex@alex.com',
+    skills: ['HTML', 'CSS', 'JavaScript'],
+    age: 20,
+    isLoggedIn: false,
+    points: 30
+  },
+  Asab: {
+    email: 'asab@asab.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'Redux', 'MongoDB', 'Express', 'React', 'Node'],
+    age: 25,
+    isLoggedIn: false,
+    points: 50
+  },
+  Brook: {
+    email: 'daniel@daniel.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux'],
+    age: 30,
+    isLoggedIn: true,
+    points: 50
+  },
+  Daniel: {
+    email: 'daniel@alex.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'Python'],
+    age: 20,
+    isLoggedIn: false,
+    points: 40
+  },
+  John: {
+    email: 'john@john.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js'],
+    age: 20,
+    isLoggedIn: true,
+    points: 50
+  },
+  Thomas: {
+    email: 'thomas@thomas.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+    age: 20,
+    isLoggedIn: false,
+    points: 40
+  },
+  Paul: {
+    email: 'paul@paul.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'MongoDB', 'Express', 'React', 'Node'],
+    age: 20,
+    isLoggedIn: false,
+    points: 40
+  }
+}
+
+const points50 = Object.values(users).filter((users)=>users.points>=50).length
+
+console.log(points50)
+
+let count = 0
+let login = 0
+for(user in users)
+{
+    if(users[user].isLoggedIn)
+    {
+        login++
+    }
+    if(users[user].points >= 50)
+    {
+        count++;
+    }
+    const skills = users[user].skills
+    if (skills.includes("MongoDB", "Express", "React", "Node") ) {
+        console.log(`${user} have MERN STACK`)
+    }
+}
+console.log(`${count} users have greater than equal to 50 points`)
+console.log(`${login} users logged in`)
+
+    </script>
+    
+</body>
+</html>

@@ -143,9 +143,186 @@
        }
        speed()
 
+       //11.Weight of a substance is calculated as follows: weight = mass x gravity. Write a function which calculates weight.
+       function weight() {
+        let mass = 100;
+        let gravity = 2;
+        let weight = mass/gravity;
+        console.log(weight);
+       }
+       weight()
 
+       //12.Temperature in oC can be converted to oF using this formula: oF = (oC x 9/5) + 32. Write a function which convert oC to oF convertCelsiusToFahrenheit.
+       function convertCelsiusToFahrenheit() {
+        let oC = 35;
+        let oF = (oC*9/5)+32;
+        console.log(oF);
+       }
+       convertCelsiusToFahrenheit()
 
+       //13.Body mass index(BMI) is calculated as follows: bmi = weight in Kg / (height x height) in m2. Write a function which calculates bmi. BMI is used to broadly define different weight groups in adults 20 years old or older.Check if a person is underweight, normal, overweight or obese based the information given below.
+       function bmi() {
+        let height = Number(prompt('Enter height in m2'));
+        let weight = Number(prompt('Enter weight in Kg'));
+        let BMI = weight*(height*height);
 
+        if (BMI<18.5) {
+            console.log(`Your BMI is ${BMI}. Your BMI is less than 18.5. You underweight.`)
+        } else if (BMI>=18.5&&BMI<=24.9) {
+            console.log(`Your BMI is ${BMI}. Your BMI is 18.5 to 24.9. You have normal weight.`)
+        } else if (BMI>=25&&BMI<=29.9) {
+            console.log(`Your BMI is ${BMI}. Your BMI is 25 to 29.9. You overweight.`)
+        } else {
+            console.log(`Your BMI is ${BMI}. Your BMI is 30 or more. You obese.`)
+        }
+       }
+       bmi()
+
+       //14.Write a function called checkSeason, it takes a month parameter and returns the season:Autumn, Winter, Spring or Summer.
+       function checkSeason() {
+        let month = Number(prompt('Enter current month: '))
+
+        if (month==12||month==1||month==2) {
+            console.log("The current season is Winter")
+        } else if (month==3||month==4||month==5) {
+            console.log("The current season is Spring")
+        } else if (month==6||month==7||month==9) {
+            console.log("The current season is Spring")
+        } else {
+            console.log("The current season Autumn")
+        }
+       }
+       checkSeason()
+
+       //15.Math.max returns its largest argument. Write a function findMax that takes three arguments and returns their maximum with out using Math.max method.
+       function findMax(a,b,c) {
+        console.log(Math.max(a,b,c))
+       }
+
+       findMax(0,10,5);
+
+       //Exercises: Level 2
+
+       //1.Linear equation is calculated as follows: ax + by + c = 0. Write a function which calculates value of a linear equation, solveLinEquation.
+
+       //2.Quadratic equation is calculated as follows: ax2 + bx + c = 0. Write a function which calculates value or values of a quadratic equation, solveQuadEquation.
+       function solveQuadratic(a,b,c) {
+        // calculate discriminant
+        let discriminant = b * b - 4 * a * c;
+        // condition for real and different roots
+        if (discriminant > 0) {
+             root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+             root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+             // result
+             console.log(`The roots of quadratic equation are ${root1} and ${root2}`);
+            }
+            // condition for real and equal roots
+            else if (discriminant == 0) {
+                root1 = root2 = -b / (2 * a);
+                // result
+                console.log(`The roots of quadratic equation are ${root1} and ${root2}`);
+            }
+            // if roots are not real
+            else {
+                let realPart = (-b / (2 * a)).toFixed(2);
+                let imagPart = (Math.sqrt(-discriminant) / (2 * a)).toFixed(2);
+                // result
+                console.log(`The roots of quadratic equation are ${realPart} + ${imagPart}i and ${realPart} - ${imagPart}i`);
+            }
+        }
+
+        console.log(solveQuadratic()) // {0}
+        console.log(solveQuadratic(1, 4, 4)) // {-2}
+        console.log(solveQuadratic(1, -1, -2)) // {2, -1}
+        console.log(solveQuadratic(1, 7, 12)) // {-3, -4}
+        console.log(solveQuadratic(1, 0, -4)) //{2, -2}
+        console.log(solveQuadratic(1, -1, 0)) //{1, 0}
+
+        //3.Declare a function name printArray. It takes array as a parameter and it prints out each value of the array.
+       const printArray = (...arrs) => {
+        console.log(arrs)
+       }
+       printArray(1,2,3,4,5)
+
+       //4.Write a function name showDateTime which shows time in this format: 08/01/2020 04:08 using the Date object.
+       function showDateTime() {
+        let now = new Date();
+        let date = now.getDate()
+        
+        if (date<10) {
+            date = "0" + date
+        }
+
+        let month = now.getMonth()
+
+        if (month<10) {
+            month = "0"+month
+        }
+
+        let years = now.getFullYear()
+        let hour = now.getHours() 
+
+        if (hour<10){
+            hour = "0" + hour;
+        }
+
+        let minute = now.getMinutes()
+
+        if (minute.length==1) {
+            minute = "0" + minute
+        }
+
+        console.log(`${date}/${month}/${years}\t${hour}:${minute}`)
+       }
+
+       showDateTime()
+
+       //5.Declare a function name swapValues. This function swaps value of x to y.
+       function swapValues(x,y) {
+        var a=x;
+        x=y;
+        y=a;
+        console.log(`(${x},${y})x=>${x},y=>${y}`)
+       }
+
+       swapValues(3,4)
+
+       //6.Declare a function name reverseArray. It takes array as a parameter and it returns the reverse of the array (don't use method).
+       function reverseArr(input) {
+        var ret = new Array;
+        for(var i = input.length-1; i >= 0; i--) {
+        ret.push(input[i]);}
+        return ret;
+    }
+    var a = [3,5,7,8]
+    var b = ['A', 'B', 'C']
+    console.log(reverseArr(a));
+    console.log(reverseArr(b));
+
+    //7.Declare a function name capitalizeArray. It takes array as a parameter and it returns the - capitalizedarray.
+    const capitalizeArray = arr => {
+        const newArr = []
+        for (const element of arr) {
+            newArr.push(element.toUpperCase())
+        }
+        return newArr
+    }
+    const names = ['nhu','quyen','thuan','my','ngan']
+    console.log(capitalizeArray(names))
+
+    //8.Declare a function name addItem. It takes an item parameter and it returns an array after adding the item
+    const addItem =['Cho','Meo']
+    addItem.push('Ga','Vit')
+    console.log(addItem)
+
+    //9.Declare a function name removeItem. It takes an index parameter and it returns an array after removing an item
+    const removeItem = ['Quyen','Nhu',"Thuan",'My','Huynh','Dang']
+    const newItem = removeItem.filter(m => {
+        return m!=="Nhu"
+    })
+    console.log(newItem)
+
+   
     </script>
 </body>
 </html>

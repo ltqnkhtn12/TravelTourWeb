@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #333;
+            font-family: sans-serif;
+            color: white;
+            font-size: 25px;
+            font-weight: 500;
+        }
+        
+        h1 {
+            text-align: center;
+            color: aqua;
+            padding-top: 10px;
+            font-style: italic;
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes example {
+            0%   {color: red;}
+            10%  {color: yellow;}
+            20%  {color: blue;}
+            30% {color: green;}
+            40%   {color: purple;}
+            50%  {color: orangered;}
+            60%  {color: white;}
+            70% {color: fuchsia;}
+            80%  {color: peru;}
+            90% {color: rosybrown;}
+            100%  {color: olivedrab;}
+}
+    </style>
+</head>
+<body>
+    <h1>30 Days Of JavaScript - Day 9</h1>
+
+    <script>
+        //Exercises: Level 1
+
+        //1.Explain the difference between forEach, map, filter, and reduce.
+
+        //forEach: Phương thức forEach được sử dụng để lặp qua từng phần tử của mảng và thực hiện một hành động nhất định trên từng phần tử đó. Phương thức này không trả về một mảng mới.
+        //map: Phương thức map được sử dụng để tạo ra một mảng mới từ một mảng có sẵn, với mỗi phần tử trong mảng mới được tính toán từ phần tử tương ứng trong mảng cũ. Phương thức này trả về một mảng mới có cùng số lượng phần tử với mảng cũ.
+        //filter: Phương thức filter được sử dụng để tạo ra một mảng mới từ một mảng có sẵn, chỉ bao gồm các phần tử thỏa mãn điều kiện được đưa ra. Phương thức này trả về một mảng mới có số lượng phần tử ít hơn hoặc bằng với mảng cũ.
+        //reduce: Phương thức reduce được sử dụng để tính toán giá trị kết hợp từ các phần tử trong mảng. Phương thức này sử dụng một hàm reduce để tính toán giá trị kết hợp đó và trả về giá trị đó.
+
+
+        //2.Define a callback function before you use it in forEach, map, filter or reduce.
+        //Một callback function trong JavaScript là một hàm được truyền vào một hàm khác như là một tham số. 
+        //Trước khi sử dụng callback function, ta cần định nghĩa nó trong phạm vi hoạt động của mình. 
+
+
+        //3.Use forEach to console.log each country in the countries array.
+        const countries = [
+            'Albania',
+            'Bolivia',
+            'Canada',
+            'Denmark',
+            'Ethiopia',
+            'Finland',
+            'Germany',
+            'Hungary',
+            'Ireland',
+            'Japan',
+            'Kenya',
+        ]
+
+        countries.forEach((item) => {
+            console.log(item)
+        })
+
+        //4.Use forEach to console.log each name in the names array.
+        const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook']
+        names.forEach((arr) => {
+            console.log(arr)
+        })
+
+        //5.Use forEach to console.log each number in the numbers array.
+        const numbers = [1, 2, 3, 4, 5];
+        numbers.forEach((nums) => {
+            console.log(nums)
+        })
+
+        //6.Use map to create a new array by changing each country to uppercase in the countries array.
+        const newArrayContries = countries.map((item) => {
+            return item.toUpperCase()
+        })
+
+        console.log(newArrayContries)
+
+        //7.Use map to create an array of countries length from countries array.
+        const lengthCountries = countries.map((item) => {
+            return item.length;
+        })
+
+        console.log(lengthCountries)
+
+        //8.Use map to create a new array by changing each number to square in the numbers array
+        const squareNumbers = numbers.map((item) => {
+            return item*item
+        })
+
+        console.log(squareNumbers)
+
+        //9.Use map to change to each name to uppercase in the names array
+        const uppercaseArray = countries.map((item) => {
+            return item.toLocaleUpperCase()
+        })
+
+        console.log(uppercaseArray)
+
+        //10.Use map to map the products array to its corresponding prices.
+
+
+        //11.Use filter to filter out countries containing land
+        const countriesContainingLand = countries.filter((country) => {
+            return country.includes('land')
+        })
+
+        console.log(countriesContainingLand)
+
+        //12.Use filter to filter out countries having six character.
+
+        const CountriesHave6Char = countries.filter((country) => {
+            return country.length===6;
+        })
+
+        console.log(CountriesHave6Char)
+
+        //14.Use filter to filter out countries having six character.
+        const countriesStartE = countries.filter((country) => {
+            return country.charAt(0) === 'E'
+        })
+        console.log(countriesStartE)
+
+        //16.Declare a function called getStringLists which takes an array as a parameter and then returns an array only with string items.
+        function getStringLists (array) {
+            return array.filter(function(item) {
+                return typeof item === 'string'
+            })
+        }
+
+        const mixedArray = [1, 'two', 'three', 4, 'five'];
+        const stringArray = getStringLists(mixedArray);
+        console.log(stringArray); // ["two", "three", "five"]
+
+
+        //17.Use reduce to sum all the numbers in the numbers array.
+        const sum = numbers.reduce((acc,cur) => {
+            return acc + cur
+        },0)
+        console.log(sum)
+
+        //18.Use reduce to concatenate all the countries and to produce this sentence: Estonia, Finland, Sweden, Denmark, Norway, and IceLand are north European countries
+        
+        const sentence = countries.reduce((acc,country,index,arr) => {
+            if (index === arr.length-1) {
+                return acc + 'and ' + country + ' are north Eu contries'
+            } else {
+                return acc + country + ', '
+            }
+        },'')
+        console.log(sentence)
+
+        //19.Explain the difference between some and every
+        
+        //Trong JavaScript, some() và every() là hai phương thức được sử dụng để kiểm tra điều kiện của các phần tử trong một mảng. Chúng trả về giá trị boolean (true hoặc false) tương ứng với kết quả kiểm tra.
+        //Phương thức some() sẽ kiểm tra xem ít nhất một phần tử trong mảng thỏa mãn điều kiện nào đó, và trả về true nếu có ít nhất một phần tử thỏa mãn điều kiện đó. Ngược lại, nếu không có phần tử nào thỏa mãn điều kiện đó, phương thức sẽ trả về false.
+        //Phương thức every() sẽ kiểm tra xem tất cả các phần tử trong mảng đều thỏa mãn điều kiện nào đó, và trả về true nếu tất cả các phần tử đều thỏa mãn điều kiện đó. Ngược lại, nếu có ít nhất một phần tử không thỏa mãn điều kiện đó, phương thức sẽ trả về false.
+
+        //20.Use every to check if all the countries contain the word land
+        const allCountriesContainingLand = countries.every((country) => {
+            return country.includes('land')
+        })
+        console.log(allCountriesContainingLand)
+
+        //21.Use some to check if some names' length greater than seven in names array
+        const checkLengthCountriesGreaterThan7 = countries.some((country) => {
+            return country.length>7
+        })
+        console.log(checkLengthCountriesGreaterThan7)
+
+        //2.Explain the difference between find and findIndex.
+        
+        //Trong JavaScript, find() và findIndex() là hai phương thức được sử dụng để tìm kiếm phần tử đầu tiên trong một mảng thỏa mãn điều kiện nào đó. 
+        //find() trả về giá trị của phần tử đầu tiên trong mảng thỏa mãn điều kiện được chỉ định trong hàm callback. Nếu không có phần tử nào thỏa mãn điều kiện, phương thức sẽ trả về undefined.
+        //findIndex() trả về chỉ số của phần tử đầu tiên trong mảng thỏa mãn điều kiện được chỉ định trong hàm callback. Nếu không có phần tử nào thỏa mãn điều kiện, phương thức sẽ trả về -1.
+        //điểm khác biệt giữa find() và findIndex() là find() trả về giá trị của phần tử đầu tiên thỏa mãn điều kiện, trong khi findIndex() trả về chỉ số của phần tử đầu tiên thỏa mãn điều kiện.
+
+        
+        //23.Use find to find the first country containing only six letters in the countries array
+        
+        const findFirstCountryContaining6letters = countries.find((country) => {
+            return country.length===6
+        })
+        console.log(findFirstCountryContaining6letters)
+
+        //24.Use findIndex to find the position of the first country containing only six letters in the countries array
+
+        const findIndexFirstCountryContaining6letters = countries.findIndex((country) => {
+            return country.length===6
+        })
+
+        console.log(findIndexFirstCountryContaining6letters)
+
+        //25.Use findIndex to find the position of Norway if it doesn't exist in the array you will get -1.
+        const findIndexNorway = countries.findIndex ((country) => {
+            return country.includes('Norway')
+        })
+        console.log(findIndexNorway)
+        //26. Use findIndex to find the position of Russia if it doesn't exist in the array you will get -1
+        const findIndexRussia = countries.findIndex ((country) => {
+            return country.includes('Russia')
+        })
+        console.log(findIndexRussia)
+
+        //Exercises: Level 2
+
+        //1.Find the total price of products by chaining two or more array iterators(eg. arr.map(callback).filter(callback).reduce(callback))
+        const products = [
+            { product: 'banana', price: 3 },
+            { product: 'mango', price: 6 },
+            { product: 'potato', price: ' ' },
+            { product: 'avocado', price: 8 },
+            { product: 'coffee', price: 10 },
+            { product: 'tea', price: '' },
+        ]
+
+        const totalPrice = products
+        .filter(product => product)
+        .map(product => product.price)
+        .reduce((acc,price) => {
+            return Number(acc + price)
+        },0)
+
+        console.log(totalPrice)
+
+        //2.Find the sum of price of products using only reduce reduce(callback))
+        
+        const findSumOfPrice = products.reduce ((acc,product) => {
+            return Number(acc+product.price)
+        },0)
+
+        console.log(findSumOfPrice)
+
+        //3.Declare a function called categorizeCountries which returns an array of countries which have some common pattern(you find the countries array in this repository as countries.js(eg 'land', 'ia', 'island','stan')).
+
+        function categorizeCountries (countries) {
+            const patterns = [
+                {name: 'land', countries: []},
+                {name: 'ia', countries: []},
+                {name: 'island', countries: []},
+                {name: 'stan', countries: []}
+            ]
+
+            countries.forEach((country) => {
+                patterns.forEach((pattern) => {
+                    if (country.toLowerCase().endsWith(pattern.name)) {
+                        pattern.countries.push(country)
+                    }
+                })
+            })
+
+            return patterns.map(pattern => pattern.countries);
+        }
+
+        console.log(categorizeCountries(countries));
+
+        //4.Create a function which return an array of objects, which is the letter and the number of times the letter use to start with a name of a country.
+
+        function countStartingLetters(countries) {
+            const counts = {}
+
+            countries.forEach((country) => {
+                const letter = country[0].toUpperCase()
+                counts[letter] = (counts[letter] || 0) + 1
+            })
+
+            return Object.entries(counts).map(([letter,count]) => ({letter,count}))
+        }
+
+        console.log(countStartingLetters(countries))
+
+        //Exercises: Level 3
+
+        //Try to develop a program which calculate measure of central tendency of a sample(mean, median, mode) and measure of variability(range, variance, standard deviation). In addition to those measures find the min, max, count, percentile, and frequency distribution of the sample. You can create an object called statistics and create all the functions which do statistical calculations as method for the statistics object. 
+        const statistics = {
+            sample: [],
+
+            //Measures of central tendency
+
+            sum: function() {
+                const sum = this.sample.reduce((acc, val) => acc + val, 0)
+                return sum
+            },
+
+            mean: function() {
+                const sum = this.sample.reduce((acc, val) => acc + val, 0)
+                const count = this.sample.length
+                return sum / count
+            },
+
+            median: function() {
+                const sorted = this.sample.slice().sort((a,b) => a-b)
+                const mid = Math.floor(sorted.length/2)
+                return sorted.length%2!==0 ? sorted[mid] : (sorted[mid-1] + sorted[mid]) / 2
+            },
+
+            mode: function() {
+                const counts = {}
+                let mode = null
+                let maxCount = 0
+
+                this.sample.forEach((val) => {
+                    counts[val] = (counts[val] || 0) + 1
+
+                    if (counts[val] > maxCount) {
+                        mode = val
+                        maxCount = counts[val]
+                    }
+                })
+
+                return mode
+            },
+
+            //Measures of variability
+            range: function() {
+                const sorted = this.sample.slice().sort((a,b) => a-b)
+                return sorted[sorted.length - 1] - sorted[0]
+            },
+
+            variance: function() {
+                const mean = this.mean()
+                const squaredDiffs = this.sample.map(val => (val - mean) ** 2)
+                return squaredDiffs.reduce((acc, val) => acc + val, 0) / (this.sample.length - 1)
+            },
+
+            standardDeviation: function() {
+                return Math.sqrt(this.variance())
+            },
+
+            //Other statistics
+            min: function() {
+                return Math.min(...this.sample);
+            },
+
+            max: function() {
+                return Math.max(...this.sample)
+            },
+
+            count: function() {
+                return this.sample.length
+            },
+
+            percentile: function(percent) {
+                const sorted = this.sample.slice().sort((a, b) => a - b)
+                const index = Math.ceil(percent / 100 * sorted.length) - 1
+                return sorted[index]
+            },
+
+            frequencyDistribution: function() {
+                const counts = {}
+                this.sample.forEach(val => counts[val] = (counts[val] || 0) + 1)
+                return counts
+            }
+        }
+
+        statistics.sample = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26]
+
+        console.log('Count:', statistics.count()) // 25
+        console.log('Sum: ', statistics.sum()) // 744
+        console.log('Mean: ', statistics.mean())
+        console.log('Min: ', statistics.min()) // 24
+        console.log('Max: ', statistics.max()) // 38
+        console.log('Range: ', statistics.range()) // 14
+        console.log('Mean: ', statistics.mean()) // 30
+        console.log('Median: ',statistics.median()) // 29
+        console.log('Mode: ', statistics.mode()) // {'mode': 26, 'count': 5}
+        console.log('Variance: ',statistics.variance()) // 17.5
+        console.log('Standard Deviation: ', statistics.standardDeviation())
+        console.log('Percentile: ', statistics.percentile(25))
+        console.log('Frequency Distribution: ',statistics.frequencyDistribution()) // [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
+
+    </script>
+    
+</body>
+</html>
