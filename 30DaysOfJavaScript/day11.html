@@ -132,7 +132,35 @@
 
         console.log(getPersonInfoLessThan2Skills)
 
-        //3 Copy the student object to newStudent without mutating the original object. In the new object add the following>
+        //3.3.Write a function called convertArrayToObject which can convert the array to a structure object.
+        const students = [
+            ['David', ['HTM', 'CSS', 'JS', 'React'], [98, 85, 90, 95]],
+            ['John', ['HTM', 'CSS', 'JS', 'React'], [85, 80, 85, 80]]
+        ]
+
+        function convertArrayToObject(students) {
+            const result = []
+
+            for (let i=0; i <students.length; i++) {
+                const [name, skills,scores] =students[i]
+
+                const student = {
+                name,
+                skills,
+                scores
+            }
+
+            result.push(student)
+            }
+
+            return result
+        }
+
+        console.log(convertArrayToObject(students))
+        
+
+
+        //3.4 Copy the student object to newStudent without mutating the original object. In the new object add the following>
         //Add Bootstrap with level 8 to the front end skill sets
         //Add Express with level 9 to the back end skill sets
         //Add SQL with level 8 to the data base skill sets
