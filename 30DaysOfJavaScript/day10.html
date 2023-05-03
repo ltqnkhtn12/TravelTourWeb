@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 10</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #333;
+            font-family: sans-serif;
+            color: white;
+            font-size: 25px;
+            font-weight: 500;
+        }
+        
+        h1 {
+            text-align: center;
+            color: aqua;
+            padding-top: 10px;
+            font-style: italic;
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes example {
+            0%   {color: red;}
+            10%  {color: yellow;}
+            20%  {color: blue;}
+            30% {color: green;}
+            40%   {color: purple;}
+            50%  {color: orangered;}
+            60%  {color: white;}
+            70% {color: fuchsia;}
+            80%  {color: peru;}
+            90% {color: rosybrown;}
+            100%  {color: olivedrab;}
+}
+    </style>
+</head>
+<body>
+    <h1>30 Days Of JavaScript - Day 10</h1>
+
+    <script src="./countries_data.js"></script>
+
+    <script>
+
+        //Trong JavaScript, Map và Set là hai cấu trúc dữ liệu khác nhau, được sử dụng để lưu trữ và quản lý các giá trị.
+        //Map là một tập hợp các cặp giá trị khóa / giá trị, trong đó mỗi khóa là duy nhất và được sử dụng để truy cập giá trị tương ứng. Các khóa có thể là bất kỳ kiểu dữ liệu nào, trong khi giá trị có thể là bất kỳ giá trị nào, bao gồm cả đối tượng. Map cho phép bạn thêm, xóa và truy cập các cặp khóa / giá trị, và cung cấp các phương thức như has() để kiểm tra xem một khóa có tồn tại trong Map hay không.
+        //Set là một tập hợp các giá trị duy nhất. Các giá trị có thể là bất kỳ kiểu dữ liệu nào, và Set cho phép bạn thêm, xóa và truy cập các giá trị trong tập hợp. Các giá trị được tự động loại bỏ nếu bạn thêm chúng nhiều lần vào Set.
+
+        //Exercises: Level 1
+
+        //1.create an empty set
+
+        const newSet = new Set()
+
+        //2.Create a set containing 0 to 10 using loop
+
+        let setNumber = new Set()
+        for (let i=0;i<=10;i++) {
+            setNumber.add(i)
+        }
+        console.log(setNumber)
+
+        //3.Remove an element from a set
+        let companies = new Set(['Google', 'Facebook', 'Amazon', 'Oracle', 'Microsoft'])
+        
+        console.log(companies.delete('Facebook'))
+        console.log(companies)
+
+        //4.Clear a set
+        companies.clear()
+        console.log(companies)
+
+        //5.Create a set of 5 string elements from array
+        const cities = ['HoChiMinh','NhaTrang','DaLat','VungTau','DongThap']
+
+        const setOfCities = new Set(cities)
+        console.log(setOfCities)
+
+        //6.Create a map of countries and number of characters of a country
+        countries = ['Finland', 'Helsinki','Sweden', 'Stockholm','Norway', 'Oslo']
+
+        let countriesMap = new Map()
+
+        for (let country of countries) {
+            countriesMap.set(country, country.length)
+        }
+
+        console.log(countriesMap)
+
+        //Exercises:Level 2
+
+        //1.Find a union b
+        //2.Find a intersection b
+        let a = [1, 2, 3, 4, 5]
+        let b = [3, 4, 5, 6]
+        let d = [...a, ...b]
+
+        let A = new Set(a)
+        let B = new Set(b)
+        let D = new Set(d)
+
+        let c = a.filter((num) => B.has(num))
+        let C = new Set(c)
+
+        console.log(D)
+        console.log(C)
+
+        //3.Find a with b
+
+        let e = a.filter((num) => !B.has(num))
+        let E = new Set(e)
+
+        console.log(E)
+
+        //Exercises:Level 3
+        //1.How many languages are there in the countries object file.
+        //2.Use the countries data to find the 10 most spoken languages:
+        
+        function mostSpokenLanguages_10(countries_data, n) {
+            // Tính tổng số người nói mỗi ngôn ngữ
+            let languageCount = {};
+            countries_data.forEach(country => {
+                country.languages.forEach(language => {
+                    languageCount[language] = (languageCount[language] || 0) + country.population;
+                });
+            });
+
+            // Chuyển đổi object thành mảng
+            let languageArray = Object.keys(languageCount).map(language => {
+                return { [language]: languageCount[language] };
+            });
+
+            // Sắp xếp mảng theo số lượng người nói giảm dần và lấy n phần tử đầu tiên
+            let topLanguages = languageArray.sort((a, b) => {
+                return Object.values(b)[0] - Object.values(a)[0];
+            }).slice(0, n);
+            return topLanguages
+        }
+        console.log(mostSpokenLanguages_10(countries_data, 10));
+
+
+
+        function calculateLanguagePopularity(countries_data, language) {
+  let countryCount = {};
+  let totalPopulation = 0;
+
+  // Đếm số lượng quốc gia sử dụng mỗi ngôn ngữ
+  countries_data.forEach(country => {
+    let languages = country.languages;
+    if (languages.includes(language)) {
+      totalPopulation += country.population;
+      languages.forEach(lang => {
+        if (lang !== language) {
+          if (countryCount[lang] === undefined) {
+            countryCount[lang] = 1;
+          } else {
+            countryCount[lang]++;
+          }
+        }
+      });
+    }
+  });
+
+  // Tính toán độ phổ biến của ngôn ngữ dựa trên số lượng quốc gia sử dụng ngôn ngữ
+  let popularity = Object.entries(countryCount).map(entry => {
+    let lang = entry[0];
+    let count = entry[1];
+    let percentage = ((count / Object.keys(countries).length) * 100).toFixed(2);
+    return { language: lang, percentage: percentage };
+  });
+
+  // Sắp xếp theo độ phổ biến giảm dần
+  popularity.sort((a, b) => b.percentage - a.percentage);
+
+  return { language: language, percentage: ((totalPopulation / Object.keys(countries).length) * 100).toFixed(2), popularity: popularity };
+}
+
+console.log(calculateLanguagePopularity(countries_data,'English'))
+
+       
+    </script>
+    
+</body>
+</html>
