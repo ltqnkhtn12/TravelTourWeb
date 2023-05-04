@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 13</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #333;
+            font-family: sans-serif;
+            color: white;
+            font-size: 25px;
+            font-weight: 500;
+        }
+        
+        h1 {
+            text-align: center;
+            color: aqua;
+            padding-top: 10px;
+            font-style: italic;
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes example {
+            0%   {color: red;}
+            10%  {color: yellow;}
+            20%  {color: blue;}
+            30% {color: green;}
+            40%   {color: purple;}
+            50%  {color: orangered;}
+            60%  {color: white;}
+            70% {color: fuchsia;}
+            80%  {color: peru;}
+            90% {color: rosybrown;}
+            100%  {color: olivedrab;}
+}
+    </style>
+</head>
+<body>
+    <h1>30 Days Of JavaScript - Day 13</h1>
+
+    <script>
+        //Display the countries array as a table
+        //Use console.group() to group logs
+        const countries = [
+            ['Finland', 'Helsinki'],
+            ['Sweden', 'Stockholm'],
+            ['Norway', 'Oslo']
+        ]
+        console.table(countries)
+        console.group('Countries')
+        console.log(countries)
+        console.groupEnd()
+
+        //10 > 2 * 10 use console.assert()
+        console.assert(10>2*10,'10 is not greater than 2*10')
+        //Write a warning message using console.warn()
+        console.warn('Warning is different from error')
+        //Write an error message using console.error()
+        console.error('This is an error message')
+
+        //Check the speed difference among the following loops: while, for, for of, forEach
+        console.time('Regular for loop')
+        for (let i=0;i<countries.length;i++) {
+            console.log(countries[i][0],countries[i][1])
+        }
+        console.timeEnd('Regular for loop')
+
+        console.time('while loop')
+        let i = 0;
+        while (i<countries.length) {
+            console.log(countries[i][0],countries[i][1])
+            i++;
+        }
+        console.timeEnd('while loop')
+
+        console.time('for of loop')
+        for (const [name,city] of countries) {
+            console.log(name,city)
+        }
+        console.timeEnd('for of loop')
+
+        console.time('forEach loop')
+        countries.forEach(([name,city]) => {
+            console.log(name,city)
+        })
+        console.timeEnd('forEach loop')
+    </script>
+    
+</body>
+</html>
