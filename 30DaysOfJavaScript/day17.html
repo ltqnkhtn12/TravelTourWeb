@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 17</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #333;
+            font-family: sans-serif;
+            color: white;
+            font-size: 25px;
+            font-weight: 500;
+        }
+        
+        h1 {
+            text-align: center;
+            color: aqua;
+            padding-top: 10px;
+            font-style: italic;
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes example {
+            0%   {color: red;}
+            10%  {color: yellow;}
+            20%  {color: blue;}
+            30% {color: green;}
+            40%   {color: purple;}
+            50%  {color: orangered;}
+            60%  {color: white;}
+            70% {color: fuchsia;}
+            80%  {color: peru;}
+            90% {color: rosybrown;}
+            100%  {color: olivedrab;}
+}
+    </style>
+</head>
+<body>
+    <h1>30 Days Of JavaScript - Day 17</h1>
+
+    <script>
+        //localStorage - to display the localStorage object
+        //localStorage.clear() - to remove everything in the local storage
+        //localStorage.setItem() - to store data in the localStorage. It takes a key and a value parameters.
+        //localStorage.getItem() - to display data stored in the localStorage. It takes a key as a parameter.
+        //localStorage.removeItem() - to remove stored item form a localStorage. It takes key as a parameter.
+        //localStorage.key() - to display a data stored in a localStorage. It takes index as a parameter.
+
+
+        //Store you first name, last name, age, country, city in your browser localStorage.
+        //localStorage.setItem('firstName','Le')
+        //localStorage.setItem('lastName', 'Nhu')
+        //localStorage.setItem('Age',23)
+        //localStorage.setItem('country','VietNam')
+        //localStorage.setItem('city','HoChiMinh')
+
+        //console.log(localStorage)
+
+        //Create a student object. The student object will have first name, last name, age, skills, country, enrolled keys and values for the keys. Store the student object in your browser localStorage.
+
+        //create student object
+        let student = {}
+
+        //set properties
+        student.firstName = "Le"
+        student.lastName = "Nghi"
+        student.age = 20
+        student.country = "VietName"
+        student.city = "HoChiMinh"
+        student.enrolled = {
+            math: true,
+            science: false,
+            english: true
+        }
+        //localStorage.setItem("student",JSON.stringify(student))
+        //console.log(localStorage)
+
+        //Create an object called personAccount. It has firstname, lastname, incomes, expenses properties and it has totalIncome, totalExpense, accountInfo,addIncome, addExpense and accountBalance methods. Incomes is a set of incomes and its description and expenses is also a set of expenses and its description.
+
+        let personAccount = {
+            firstName : 'Le',
+            lastName : 'Quyen',
+            incomes : [],
+            expenses : [],
+
+            addIncome: function (description,amount) {
+                this.incomes.push({description,amount})
+            },
+
+            addExpense: function (description,amount) {
+                this.expenses.push({description,amount})
+            },
+
+            totalIncome: function () {
+                let total = 0;
+                for (let income of this.incomes) {
+                    total += income.amount
+                }
+                return total
+            },
+
+            totalExpense: function() {
+                let total = 0;
+                for (let expense of this.expenses) {
+                    total += expense.amount
+                }
+                return total
+            },
+
+            accountInfo: function() {
+                let info = `Name: ${this.firstName} ${this.lastName}`
+                info += `Income: ${this.totalIncome()}\n`
+                info += `Expense: ${this.totalExpense()}\n`
+                return info
+            },
+
+            accountBalance: function() {
+                return this.totalIncome() - this.totalExpense()
+            }
+        }
+
+        personAccount.addIncome('Salary', 3000);
+        personAccount.addExpense('Rent', 1000);
+        personAccount.addExpense('Food', 500);
+        console.log(personAccount.accountInfo());
+        console.log(`Account balance: ${personAccount.accountBalance()}`);
+        localStorage.setItem("personAccount",JSON.stringify(personAccount))
+        console.log(localStorage)
+
+
+       
+    </script>
+</body>
+</html>
