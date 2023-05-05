@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 15</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #333;
+            font-family: sans-serif;
+            color: white;
+            font-size: 25px;
+            font-weight: 500;
+        }
+        
+        h1 {
+            text-align: center;
+            color: aqua;
+            padding-top: 10px;
+            font-style: italic;
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes example {
+            0%   {color: red;}
+            10%  {color: yellow;}
+            20%  {color: blue;}
+            30% {color: green;}
+            40%   {color: purple;}
+            50%  {color: orangered;}
+            60%  {color: white;}
+            70% {color: fuchsia;}
+            80%  {color: peru;}
+            90% {color: rosybrown;}
+            100%  {color: olivedrab;}
+}
+    </style>
+</head>
+<body>
+    <h1>30 Days Of JavaScript - Day 15</h1>
+    
+    <script>
+        //Create an Animal class. The class will have name, age, color, legs properties and create different 
+        //Create a Dog and Cat child class from the Animal Class.
+        //Override the method you create in Animal class
+        class Animal {
+            constructor(name,age,color,legs) {
+                this.name=name;
+                this.age=age;
+                this.color=color;
+                this.legs=legs;              
+            }
+
+            speak() {
+                console.log(`${this.name} is a ${this.color} ${this.constructor.name} who is ${this.age} yaers old and has ${this.legs} legs`)
+            }
+
+            birthday() {
+                this.age++
+                console.log(`Happy birthday, ${this.name}! You are now ${this.age} years old`)
+            }
+
+            setColor(newColor) {
+                this.color = color
+                console.log(`${this.name}'s color has been updated to ${this.color}`)
+            }
+        }
+
+        class Dog extends Animal {
+            constructor(name, age, color, breed) {
+                super(name,age,color,4)
+                this.breed=breed
+            }
+
+            speak() {
+                console.log(`${this.name} barks!`);
+            }
+
+            describe() {
+                console.log(`${this.name} is a ${this.color} ${this.breed} ${this.constructor.name} who is ${this.age} years old.`);
+            }
+
+            fetch() {
+                console.log(`${this.name} fetches the ball!`);
+            }
+         }
+
+         class Cat extends Animal {
+            constructor(name, age, color, breed) {
+                super(name,age,color,4)
+                this.breed=breed
+            }
+
+            speak() {
+                console.log(`${this.name} barks!`);
+            }
+
+            describe() {
+                console.log(`${this.name} is a ${this.color} ${this.breed} ${this.constructor.name} who is ${this.age} years old.`);
+            }
+
+            scratch() {
+                console.log(`${this.name} scratches the furniture!`);
+            }
+         }
+
+         const Dog1 = new Dog('Bear',4,'Gray','Husky')
+         console.log(Dog1)
+         Dog1.speak()
+         Dog1.birthday()
+         Dog1.describe()
+         Dog1.fetch()
+
+         const Cat1 = new Cat('MiMi',3,'White','American Curl')
+         console.log(Cat1)
+         Cat1.speak()
+         Cat1.birthday()
+         Cat1.describe()
+         Cat1.scratch()
+
+         class PersonAccount {
+            constructor (firstname, lastname, income, expenses) {
+                this.firstname = firstname;
+                this.lastname =lastname;
+                this.income = new Map();
+                this.expenses = new Map();
+            }
+
+            addIncome (description,amount) {
+                if (amount <= 0) {
+                    console.log("Amount must be greater than zero!")
+                    return
+                }
+                if (this.income.has(description)) {
+                    console.log("This income already exists!")
+                    return
+                }
+                this.income.set(description.amount)
+                console.log(`Added income: ${description} - $${amount}`)
+            }
+
+            addExpense(description,amount) {
+                if (amount<=0) {
+                    console.log("Amount must be greater than zero!")
+                    return
+                }
+                if (this.expenses.has(description)) {
+                    console.log("This expense already exists!")
+                    return
+                }
+                this.expenses.set(description,amount)
+                console.log(`Added expense: ${description} - $${amount}`)
+            }
+
+            totalIncome() {
+                let total = 0;
+                for (let [_, amount] of this.expenses) {
+                    total +=amount
+                }
+                return total
+            }
+
+            totalExpense() {
+                let total = 0;
+                for (let [_, amount] of this.expenses) {
+                    total += amount
+                }
+                return total
+            }
+
+            accountBalance() {
+                return this.totalIncome - this.totalExpense()
+            }
+
+            accountInfo() {
+                console.log(`Account Information for ${this.firstname} ${this.lastname}`)
+                console.log(`-Total Income: $${this.totalIncome()}`)
+                console.log(`-Total Expenses: $${this.totalExpense()}`)
+                console.log(`-Account Balance: $${this.accountBalance()}`)
+            }
+         }
+
+         let person = new PersonAccount("Le", "Quyen")
+         person.addIncome("Salary",5000)
+         person.addIncome("Bonus",1000)
+         person.addExpense("Rent",1500)
+         person.addExpense("Food",500)
+         person.addExpense("Transportation",200)
+         person.accountInfo()
+
+         
+    </script>
+</body>
+</html>
