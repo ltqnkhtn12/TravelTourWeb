@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 19</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #333;
+            font-family: sans-serif;
+            color: white;
+            font-size: 25px;
+            font-weight: 500;
+        }
+        
+        h1 {
+            text-align: center;
+            color: aqua;
+            padding-top: 10px;
+            font-style: italic;
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes example {
+            0%   {color: red;}
+            10%  {color: yellow;}
+            20%  {color: blue;}
+            30% {color: green;}
+            40%   {color: purple;}
+            50%  {color: orangered;}
+            60%  {color: white;}
+            70% {color: fuchsia;}
+            80%  {color: peru;}
+            90% {color: rosybrown;}
+            100%  {color: olivedrab;}
+}
+    </style>
+</head>
+<body>
+    <h1>30 Days Of JavaScript - Day 19</h1>
+
+    <script>
+        // closure là khả năng của một hàm lồng trong một hàm khác để truy cập vào biến trong phạm vi của hàm bên ngoài, ngay cả khi hàm bên ngoài đã được thực thi xong.
+        //closure cho phép lưu trữ trạng thái của một hàm và giữ nó trong bộ nhớ cho đến khi nó được gọi lại
+        // Điều này làm cho các biến và hàm có thể được bảo vệ khỏi các tác động bên ngoài và giúp duy trì tính riêng tư của chúng.
+    
+        function outerFunction() {
+            let outerVariable = "I am outside!";
+            function innerFunction() {
+                console.log(outerVariable);
+            }
+            return innerFunction;
+        }
+        let innerFunc = outerFunction();
+        innerFunc(); // prints "I am outside!"
+
+        //Create a closure which has one inner function
+        function counter() {
+            let count = 0
+
+            function increment() {
+                count++
+                console.log(count)
+            }
+
+            return increment;
+        }
+
+        let incrementCounter = counter()
+
+        incrementCounter() //1
+        incrementCounter() //2
+        incrementCounter() //3
+
+        function counters() {
+            let count = 0
+
+            function decrement() {
+                count--
+                console.log(count)
+            }
+
+            function increment() {
+                count++
+                console.log(count)
+            }
+
+            function reset() {
+                count = 0
+                console.log("Count reset to 0")
+            }
+
+            return {
+                decrement: decrement,
+                increment: increment,
+                reset: reset
+            }
+        }
+
+        let counterObj = counters()
+        counterObj.decrement()
+        counterObj.increment()
+        counterObj.increment()
+        counterObj.reset()
+
+        //Create a personAccount out function. It has firstname, lastname, incomes, expenses inner variables. It has totalIncome, totalExpense, accountInfo,addIncome, addExpense and accountBalance inner functions. Incomes is a set of incomes and its description and expenses is also a set of expenses and its description.
+        function personAccount(firstName,lastName) {
+            let incomes = []
+            let expenses = []
+
+            function addIncome(description,amount) {
+                incomes.push({description: description, amount: amount})
+            }
+
+            function addExpense(description,amount) {
+                expenses.push({description: description, amount: amount})
+            }
+
+            function totalIncome() {
+                let total = 0;
+                for (let i=0; i<incomes.length;i++) {
+                    total += incomes[i].amount
+                }
+                return total
+            }
+
+            function totalExpense() {
+                let total = 0;
+                for (let i=0; i<expenses.length;i++) {
+                    total += expenses[i].amount
+                }
+                return total
+            }
+
+            function accountBalance() {
+                return totalIncome() - totalExpense()
+            }
+
+            function accountInfo() {
+                console.log(`Account Information for ${firstName} ${lastName}`)
+                console.log(`-Total Income: $${totalIncome()}`)
+                console.log(`-Total Expenses: $${totalExpense()}`)
+            }
+
+            return {
+                addIncome: addIncome,
+                addExpense: addExpense,
+                accountInfo: accountInfo,
+                accountBalance: accountBalance
+            }
+
+        }
+
+        let person = personAccount("Le","Nhu")
+        person.addIncome("Salary",10000)
+        person.addIncome("Bonus",1000)
+        person.addExpense("Rent",1500)
+        person.addExpense("Food",500)
+        person.addExpense("Transportation",200)
+        person.accountInfo()
+        console.log(person.accountBalance())
+
+    </script>
+    
+</body>
+</html>
