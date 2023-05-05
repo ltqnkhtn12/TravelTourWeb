@@ -151,7 +151,21 @@
                 const top10Countries = sortedCountries.slice(0,10)
 
                 console.log(top10Countries)
-            })
+
+                const allLanguages = []
+
+                for(const country of data) {
+                    for (const language of country.languages) {
+                        allLanguages.push(language)
+                    }
+                }
+
+                const officialLanguages = allLanguages.filter(language => language.name)
+                const totalOfficialLanguages = new Set(officialLanguages).size
+                console.log(`Total number of languages in the worls used as officials is ${totalOfficialLanguages}`)
+                    
+                })
+
             .catch(error => console.log(error))
 
             //Print out all the cat names in to catNames variable.
