@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 21</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background: #333;
+        font-family: sans-serif;
+        color: white;
+        text-align: center;
+        word-spacing: 3px;
+        padding-top: 10px;
+    }
+
+    #clock {
+        margin-left: 40%;
+        margin-right: 40%;
+        margin-top: 20px;
+        padding: 20px 20px;
+        font-style: 25px;
+        font-weight: bolder;
+    }
+
+    h2 {
+        text-decoration: underline;
+        font-weight: bolder;
+    }
+
+    li {
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-top: 10px;
+        padding: 20px 20px;
+        list-style: none;
+    }
+</style>
+</head>
+<body>
+    <!--<p class="tag-name">Quỳnh Như</p>-->
+    <!--<p class="id1">Lê Thị Quỳnh Như</p>-->
+
+    <div class="wrapper">
+        <h1>Asabeneh Yetayeh challenges in 2020</h1>
+        <div id="clock"></div>
+        <h2>30DaysOfJavaScript Challenge</h2>
+        <ul>
+            <li>30DaysOfPython Challenge Done</li>
+            <li>30DaysOfJavaScript Challenge Ongoing</li>
+            <li>30DaysOfReact Challenge Coming</li>
+            <li>30DaysOfFullStack Challenge Coming</li>
+            <li>30DaysOfDataAnalysis Challenge Coming</li>
+            <li>30DaysOfReactNative Challenge Coming</li>
+            <li>30DaysOfMachineLearning Challenge Coming</li>
+        </ul>
+    </div>
+
+    <script>
+        //put four p elements as above: Get the first paragraph by using document.querySelector(tagname) and tag name
+
+        const  tagName = document.querySelectorAll('.tag-name')
+
+        tagName.forEach(name => {
+            name.style.color = 'red'
+            name.style.fontSize = '25px'
+            //name.style.position = 'absolute'
+            //name.style.top = '50%'
+            //name.style.left = '50%'
+            //name.style.transform = 'translate(-50%, -50%)'
+        })
+
+        //Thay đổi màu sắc ở năm ở mỗi giây
+
+        const h1Element = document.querySelector('h1')
+        const listItems = document.querySelectorAll('li')
+
+        setInterval(() => {
+            const text = h1Element.textContent
+
+            const randomColor = Math.floor(Math.random()*16777215).toString(16)
+
+            const newText =  text.replace(/2020/g, `<span style="color: #${randomColor}">2020</span>`)
+                h1Element.innerHTML = newText
+        },500)
+
+        //Hiển thị giờ và thay đổi màu sắc nền liên tục ở mỗi giây
+
+        const clockElement = document.getElementById('clock')
+
+        function updateClock() {
+            const now = new Date()
+
+            const dateTimeString = now.toLocaleString()
+
+            clockElement.textContent = dateTimeString
+
+            const randomColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`
+            clockElement.style.backgroundColor = randomColor
+        }
+
+        setInterval(updateClock, 1000)
+
+
+        //thay đổi nền ở mỗi phần tử li
+        
+        listItems[0].style.backgroundColor = 'green'
+        listItems[1].style.backgroundColor = 'peru'
+
+        for (let i=2; i<listItems.length;i++) {
+            listItems[i].style.backgroundColor = 'red'
+        }
+
+    </script>
+</body>
+</html>
