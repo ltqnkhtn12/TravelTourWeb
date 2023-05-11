@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 23</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-size: 25px;
+            background: #333;
+            color: aliceblue;
+        }
+
+        button {
+            border: 2px solid brown;
+            background: greenyellow;
+            color: blue;
+            font-weight: 800;
+            padding: 10px;
+            margin: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input {
+            border: 2px solid brown;
+            background: rgb(77, 215, 219);
+            color: gray;
+            padding: 10px;
+        }
+
+        #calBMI:hover {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <button id="btnClick">Cilck</button>
+    <br>
+    <button onclick="clickMe()">OnClick</button>
+    <br>
+    <button id="btnDoubleClick">Double click</button>
+    <br>
+    <button id="btnMouseEnter">Mouse Enter</button>
+    <br>
+
+    <input type="text" id="mass" placeholder="Mass in kilogram">
+    <input type="text" id="height" placeholder="Height in meters">
+    <button id="calBMI">Calculate BMI</button>
+
+    <br>
+
+    <input type="text" placeholder="say something" id="input-change">
+    <p></p>
+
+    <br>
+
+    <input type="text" id="blurEvent" placeholder="say something">
+    <h5></h5>
+
+    <h1>Key events: Press and key</h1>
+
+    
+
+    <script>
+        const button = document.getElementById('btnClick')
+        button.addEventListener('click', e => {
+            console.log('e gives the event listener object: ',e)
+            console.log('e.target gives the selected element: ', e.target)
+            console.log('e.target.textContent gives content of selected element: ',e.target.texContent)
+        })
+
+        const clickMe = () => {
+            alert('We can attach event on HTML element')
+        }
+
+        const buttonDoubleClick = document.getElementById('btnDoubleClick')
+        buttonDoubleClick.addEventListener ('dblclick', e => {
+            console.log('e gives the event listener object: ',e)
+            console.log('e.target gives the selected element: ', e.target)
+            console.log('e.target.textContent gives content of selected element: ',e.target.texContent)
+        })
+
+        const btnMouseEnter = document.getElementById('btnMouseEnter')
+        btnMouseEnter.addEventListener('mouseenter', e => {
+            console.log('e gives the event listener object: ',e)
+            console.log('e.target gives the selected element: ', e.target)
+            console.log('e.target.textContent gives content of selected element: ',e.target.texContent)
+        })
+
+        const mass = document.querySelector('#mass')
+        const height = document.querySelector('#height')
+        const btnCalBMI = document.querySelector('#calBMI')
+
+        let bmi
+        btnCalBMI.addEventListener('click', () => {
+            bmi = mass.value / height.value **2
+            alert(`your bmi is ${bmi.toFixed(2)}`)
+            console.log(bmi)
+        })
+
+        const inputChange = document.querySelector('#input-change')
+        const p  = document.querySelector('p')
+
+        inputChange.addEventListener('input', e => {
+            p.textContent = e.target.value
+        })
+
+        const blurEvent = document.querySelector('#blurEvent')
+        const h5 = document.querySelector('h5')
+
+        blurEvent.addEventListener('blur', (e) => {
+            h5.textContent = 'Field is required'
+            h5.style.color = 'white'
+        })
+
+        document.body.addEventListener('keypress', e => {
+            alert(e.keyCode)
+        })
+
+    </script>
+</body>
+</html>
