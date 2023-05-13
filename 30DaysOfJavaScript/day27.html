@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 27</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .title {
+            letter-spacing: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        #changeContent {
+            border: 1px solid pink;
+            background: pink;
+            height: 50px;
+            margin-bottom: 20px;
+            justify-content: center;
+            align-items: center;
+            color: gray;
+            padding-top: 10px;
+            padding-left: 50px;
+        }
+
+        .content {
+            letter-spacing: 5px;
+            padding-left: 50px;
+
+        }
+
+        .content-flex {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .content-flex div {
+            margin-right: 50px;
+            border: 1px solid none;
+            padding: 30px 70px;
+            margin-left: 50px;
+        }
+
+        .content-flex div:hover {
+            background: palevioletred;
+            color: aliceblue;
+        }
+
+        .content-color {
+            margin-top: 20px;
+        }
+
+        .content-color #changeContentColor {
+            display: inline;
+            word-spacing: 10px;
+        }
+        
+    </style>
+
+
+</head>
+<body>
+
+    <div class="title">
+        <h1>Lê Thị Quỳnh Như</h1>
+    </div>
+
+    <div id="changeContent"></div>
+
+    <div class="content">
+        I am Nhu. I am student at HCMUS. My major is Mathematics and Computer Scient.
+    </div>
+
+    <div class="content-flex">
+        <div>JAVASCRIPT FOR ME</div>
+        <div>30DAYS OF JAVASCRIPT</div>
+        <div>TRY HARD EVERYDAY</div>
+    </div>
+
+    <div class="content-color">The teachnologies I learn <div id="changeContentColor"></div></div>
+
+    <script>
+        const changeContent = document.querySelector('#changeContent')
+        const changeContentColor = document.querySelector('#changeContentColor')
+        let i = 0;
+        setInterval(() => {
+            const words = ['Motivator', 'Programer', 'Educator', 'Motivation Speaker','Instruction','Content Creater','Student'];
+            changeContent.textContent = words[i];
+            i = (i + 1) % words.length;
+            changeContent.style.fontSize = '25px'
+            }, 1000);
+        
+            setInterval(() => {
+            const words = ['JavaScript','Python','Java','C++','C#']
+            i = (i + 1) % words.length;
+            changeContentColor.textContent = words[i]
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16).slice(-6)
+            changeContentColor.style.color = randomColor
+            changeContentColor.style.fontSize = '40px'
+            }, 1000);
+    </script>
+    
+</body>
+</html>
