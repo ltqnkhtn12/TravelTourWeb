@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cau1">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-size: 20px;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="myController">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="person in people">
+                    <td>{{person.name}}</td>
+                    <td>{{person.age}}</td>
+                    <td>{{person.location}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+                angular.module('cau1', []).controller('myController', function($scope) {
+                $scope.people = [
+                    {
+                        name: "David",
+                        age: 30,
+                        location: "HCM"
+                    },
+                    {
+                        name: "Anna",
+                        age: 29,
+                        location: "HN"
+                    },
+                    {
+                        name: 'Ronaldo',
+                        age: 29,
+                        location: 'LA'
+                    },
+                    {
+                        name: 'Messi', 
+                        age: 24,
+                        location: 'BT'
+                    }
+                ];
+            });
+    </script>
+
+    
+</body>
+</html>

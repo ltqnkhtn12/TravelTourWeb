@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myTest">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-size: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        label {
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="myController">
+        <label>
+          <input type="radio" ng-model="orderByField" value="name" ng-change="sortNames()"> OrderBy Name in Ascending Order
+        </label>
+        <label>
+          <input type="radio" ng-model="orderByField" value="-name" ng-change="sortNames()"> OrderBy Name in Descending Order
+        </label>
+    
+        <ul>
+          <li ng-repeat="person in people | orderBy:orderByField">{{person.name}}</li>
+        </ul>
+      </div>
+
+      <script>
+        var app = angular.module('myTest', []);
+            app.controller('myController', function ($scope) {
+            $scope.people = [
+                {
+                    name: 'David',
+                    age: 11
+                },
+
+                {
+                    name: 'Ronaldo',
+                    age: 29
+                },
+
+                {
+                    name: 'Messi',
+                    age: 29
+                },
+
+                {
+                    name: 'Jidane',
+                    age: 24
+                }
+            ];
+
+            $scope.orderByField = 'name';
+
+            $scope.sortNames = function () {
+            $scope.sortedPeople = $scope.people.slice().sort(function(a, b) {
+                if ($scope.orderByField === 'name') {
+                    return a.name.localeCompare(b.name);
+                } else if ($scope.orderByField === '-name') {
+                    return b.name.localeCompare(a.name);
+                }
+                });
+            };
+
+            // Mặc định sắp xếp danh sách tên A-Z khi trang được tải lần đầu
+            $scope.sortNames();
+        })
+      </script>
+    
+</body>
+</html>

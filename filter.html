@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myTest">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu 3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        *{
+            box-sizing: border-box;
+            font-size: 20px;
+        }
+        ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    li span {
+        margin-right: 50px;
+    }
+    </style>
+</head>
+<body>
+    <div ng-controller="myController">
+        Enter Name to Filter: <input type="text" ng-model="searchText" ng-change="filterNames()" placeholder="Filter key">
+    
+        <ul>
+            <li><span>Name</span><span>Age</span></li>
+          <li ng-repeat="person in filteredPeople"><span>{{person.name}}</span><span>{{person.age}}</span></li>
+        </ul>
+      </div>
+
+      <script>
+        var search = angular.module('myTest', []);
+        search.controller('myController', function ($scope) {
+        $scope.people = [
+                {
+                    name: 'David',
+                    age: 11
+                },
+
+                {
+                    name: 'Ronaldo',
+                    age: 29
+                },
+
+                {
+                    name: 'Messi',
+                    age: 29
+                },
+
+                {
+                    name: 'Jidane',
+                    age: 24
+                }
+            ];
+
+            $scope.filteredPeople = [];
+
+      $scope.filterNames = function () {
+        var searchText = $scope.searchText.toLowerCase();
+        $scope.filteredPeople = $scope.people.filter(function (person) {
+          return person.name.toLowerCase().includes(searchText);
+        });
+      };
+        });
+      </script>
+    
+</body>
+</html>
