@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 25</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif
+        }
+    
+        #title {
+            text-align: center;
+            background: gray;
+            padding-top: 10px;
+            margin-bottom: 20px;
+        }
+    
+        #title h1 {
+            color: peru;
+        }
+    
+        #title p {
+            color: black;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    
+        #btnClick {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    
+        #btnClick button {
+            background: peru;
+            border: 1px solid peru;
+            padding: 10px;
+            margin-right: 20px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+    
+        #btnClick button:hover {
+            opacity: 0.9;
+            padding: 12px;
+            color: brown;
+        }
+    
+        .container-chart {
+            background: gray;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    
+        .container-chart .chart {
+                height: 20px;
+                margin-right: 5px;
+                background: peru;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                color: #fff;
+                padding-right: 5px;
+                font-weight: bold;
+                font-size: 14px;
+                width: 0;
+                transition: width 1s;
+            }
+        .container-chart .bar {
+                font-size: 14px;
+                font-weight: bold;
+                margin-right: 10px;
+                width: 200px;
+                text-align: right;
+            }
+    
+    </style>
+</head>
+<body>
+
+    <div id="body-container">
+        
+    <div id="title">
+        <h1>Word Countries Data</h1>
+        <p>Current, we have 250 Countries</p>
+    </div>
+
+    <div id="btnClick">
+        <button id="population">POPULATION</button>
+        <button id="languages">LANGUAGES</button>
+        <br>
+        <p id="change-description"></p>
+    </div>
+
+    </div>
+    <script src="./day25.js"></script>
+    
+</body>
+</html>

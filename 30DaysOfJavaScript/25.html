@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="population-chart"></div>
+    <div id="language-chart"></div>
+    <script>
+   fetch('https://restcountries.com/v3.1/all')
+  .then(response => response.json())
+  .then(data => {
+    // Sắp xếp theo dân số giảm dần
+    const sortedByPopulation = data.sort((a, b) => b.population - a.population);
+    // Lấy ra 10 quốc gia có dân số cao nhất
+    const top10Population = sortedByPopulation.slice(0, 10);
+    // Lấy ra danh sách các ngôn ngữ sử dụng trong top 10 quốc gia
+    const languages = data.languages;
+    /*top10Population.forEach(country => {
+      country.languages.forEach(language => {
+        if (languages[language]) {
+          languages[language] += 1;
+        } else {
+          languages[language] = 1;
+        }
+      });
+    });*/
+    // Sắp xếp theo số lượng ngôn ngữ giảm dần
+    const sortedLanguages = Object.entries(languages).sort((a, b) => b[1] - a[1]);
+    // Lấy ra 10 ngôn ngữ được sử dụng nhiều nhất
+    const top10Languages = sortedLanguages.slice(0, 10);
+
+    // Vẽ biểu đồ cột ngang cho top 10 quốc gia theo dân số
+    const populationChart = document.querySelector('#population-chart');
+    top10Population.forEach(country => {
+      const bar = document.createElement('div');
+      bar.classList.add('bar');
+      bar.style.width = `${(country.population / top10Population[0].population) * 100}%`;
+      bar.innerHTML = `${country.name.common} (${country.population.toLocaleString()})`;
+      populationChart.appendChild(bar);
+    });
+
+    // Vẽ biểu đồ cột ngang cho top 10 ngôn ngữ được sử dụng nhiều nhất
+    /*const languageChart = document.querySelector('#language-chart');
+    top10Languages.forEach(language => {
+      const bar = document.createElement('div');
+      bar.classList.add('bar');
+      bar.style.width = `${(language[1] / top10Languages[0][1]) * 100}%`;
+      bar.innerHTML = `${language[0]} (${language[1]})`;
+      languageChart.appendChild(bar);
+    });*/
+  })
+  .catch(error => console.error(error));
+
+    </script>
+</body>
+</html>
